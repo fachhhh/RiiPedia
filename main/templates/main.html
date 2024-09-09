@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RiiPedia</title>
+    <style>
+        h1 {
+            margin-bottom: 10px;
+        }
+        h4.small {
+            line-height: 0.1;
+        }
+        h2.small {
+            line-height: 0.1;
+        }
+        .book-info {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>RiiPedia</h1>
+    <h4 class="small">PBP E-Commerce Project by Hadyan Fachri (2306245030)</h4>
+    
+    <div class="book-info">
+        <!-- Book Title -->
+        <h3>{{ name }}</h3>
+        
+        <!-- Book Price -->
+        <h2 class="small">Rp{{ price }}</h2>
+
+        <!-- Book Quantity -->
+        <p>Terjual: {{ quantity }}</p>
+        
+        <!-- Book Description -->
+        <p>{{ description }}</p>
+    </div>
+</body>
+</html>
