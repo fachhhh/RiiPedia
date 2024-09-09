@@ -2,38 +2,31 @@
 <html>
 <head>
     <title>RiiPedia</title>
-    <style>
-        h1 {
-            margin-bottom: 10px;
-        }
-        h4.small {
-            line-height: 0.1;
-        }
-        h2.small {
-            line-height: 0.1;
-        }
-        .book-info {
-            margin-top: 20px;
-        }
-    </style>
 </head>
 
 <body>
+    <!-- Main Title -->
     <h1>RiiPedia</h1>
-    <h4 class="small">PBP E-Commerce Project by Hadyan Fachri (2306245030)</h4>
+    <h4>PBP E-Commerce Project by Hadyan Fachri (2306245030)</h4>
     
+    <hr> <!-- Horizontal line for separation -->
+
+    <!-- Book Information Section -->
     <div class="book-info">
         <!-- Book Title -->
-        <h3>{{ name }}</h3>
+        <h2><u>{{ name }}</u></h2> <!-- Underlined for emphasis -->
         
         <!-- Book Price -->
-        <h2 class="small">Rp{{ price }}</h2>
+        <h3>Price: <strong>Rp{{ price }}</strong></h3> <!-- Bolded for emphasis -->
 
         <!-- Book Quantity -->
-        <p>Terjual: {{ quantity }}</p>
+        <p><em>Terjual:</em> {{ quantity }} <!-- Italics for emphasis -->
+        </p>
         
         <!-- Book Description -->
-        <p>{{ description }}</p>
+        <p><strong>Description:</strong> {{ description }}</p> <!-- Bolded for emphasis -->
     </div>
+
+    <hr> <!-- Horizontal line for separation -->
 </body>
 </html>
