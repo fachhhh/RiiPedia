@@ -1,26 +1,23 @@
-from django.test import TestCase, Client
-from django.utils import timezone
-from .models import MoodEntry
+from django.test import TestCase
+from .models import Ecommerce
 
-class mainTest(TestCase):
-    def test_main_url_is_exist(self):
-        response = Client().get('')
-        self.assertEqual(response.status_code, 200)
+class EcommerceModelTest(TestCase):
+    def setUp(self):
+        # Set up a few instances of the Ecommerce model
+        Ecommerce.objects.create(name="Product A", price=100, quantity=60, description="Description of Product A")
+        Ecommerce.objects.create(name="Product B", price=150, quantity=30, description="Description of Product B")
 
-    def test_main_using_main_template(self):
-        response = Client().get('')
-        self.assertTemplateUsed(response, 'main.html')
+    def test_ecommerce_str(self):
+        # Test that the string representation is correct
+        product = Ecommerce.objects.get(name="Product A")
+        self.assertEqual(str(product), "Product A")
 
-    def test_nonexistent_page(self):
-        response = Client().get('/skibidi/')
-        self.assertEqual(response.status_code, 404)
+    def test_is_quantity_more_than_50_true(self):
+        # Test if is_quantity_more_than_50 is True when quantity is more than 50
+        product = Ecommerce.objects.get(name="Product A")
+        self.assertTrue(product.is_quantity_more_than_50)
 
-    def test_strong_mood_user(self):
-        now = timezone.now()
-        mood = MoodEntry.objects.create(
-          mood="LUMAYAN SENANG",
-          time = now,
-          feelings = "senang sih, cuman tadi baju aku basah kena hujan :(",
-          mood_intensity = 8,
-        )
-        self.assertTrue(mood.is_mood_strong)
+    def test_is_quantity_more_than_50_false(self):
+        # Test if is_quantity_more_than_50 is False when quantity is 50 or less
+        product = Ecommerce.objects.get(name="Product B")
+        self.assertFalse(product.is_quantity_more_than_50)

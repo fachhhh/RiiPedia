@@ -3,7 +3,7 @@ from django.shortcuts import render
 def show_main(request):
     context = {
         'name' : 'Chainsaw Man 1 (Japanese Version)',
-        'price' : '121.000',
+        'price' : '121000',
         'quantity' : '30',
         'description' :'Shounen manga by Tatsuki Fujimoto'
     }
