@@ -45,7 +45,7 @@ jawab:\
 ### 2. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.
 jawab:\
     ![bagan django](https://github.com/user-attachments/assets/69a62625-cb79-4f12-8211-ae7f132bbad7)\
-    penjelasan sudah ada di dalam bagan\
+    penjelasan sudah ada di dalam bagan
     
 ### 3. Jelaskan fungsi git dalam pengembangan perangkat lunak!
 jawab:\
@@ -69,7 +69,7 @@ jawab:\
     Git biasanya terintegrasi dengan alat **CI/CD** (*Continuous Integration/Continuous Deployment*). Integrasi ini memungkinkan otomatis pengujian, build, dan deployment setiap kali ada perubahan kode yang di push ke repositori, meningkatkan efisiensi dan kualitas perangkat lunak.\
     \
     7. **Tracking**\
-    Git menyediakan riwayat perubahan kode yang jelas, siapa yang membuat perubahan, kapan perubahan itu dibuat, dan mengapa perubahan tersebut dilakukan terlihat dari commit atau perintah yang kita jalankan. Ini sangat penting untuk mereview kode, dan pemeliharaan di masa depan atau jangka panjang.\
+    Git menyediakan riwayat perubahan kode yang jelas, siapa yang membuat perubahan, kapan perubahan itu dibuat, dan mengapa perubahan tersebut dilakukan terlihat dari commit atau perintah yang kita jalankan. Ini sangat penting untuk mereview kode, dan pemeliharaan di masa depan atau jangka panjang.
     
 ### 4. Menurut Anda, dari semua framework yang ada, mengapa framework Django dijadikan permulaan pembelajaran pengembangan perangkat lunak?
 jawab:\
@@ -91,10 +91,10 @@ jawab:\
     Django sangat fleksibel dan scalable, sehingga cocok untuk membangun berbagai jenis proyek, mulai dari proyek kecil dan sederhana hingga aplikasi web yang besar dan kompleks. Hal ini memungkinkan pemula untuk memulai dengan proyek sederhana dan secara bertahap meningkatkan kompleksitas proyek mereka seiring kemajuan pembelajaran.\
     \
     6. Django memiliki keamanan yang tinggi
-    Django menangani banyak aspek keamanan web secara default, seperti perlindungan terhadap serangan SQL injection, cross-site scripting (*XSS*), dan cross-site request forgery (*CSRF*). Hal ini sangat penting untuk pemula karena mereka mungkin belum terbiasa dengan konsep keamanan dalam pengembangan web. Dengan Django, pengembang pemula dapat belajar praktik keamanan yang baik dari awal.\
+    Django menangani banyak aspek keamanan web secara default, seperti perlindungan terhadap serangan SQL injection, cross-site scripting (*XSS*), dan cross-site request forgery (*CSRF*). Hal ini sangat penting untuk pemula karena mereka mungkin belum terbiasa dengan konsep keamanan dalam pengembangan web. Dengan Django, pengembang pemula dapat belajar praktik keamanan yang baik dari awal.
 
 ### 5. Mengapa model pada Django disebut sebagai ORM?
 jawab:\
-    Seperti yang sudah disinggung di poin sebelumnya bahwa Django memiliki fitur built-in seperti ORM. Model Django disebut sebagai ORM karena mereka menggunakan teknik Object-Relational Mapping yang mana digunakan untuk memetakan kelas dan object python ke tabel dan baris data relasional. Dengan ORM, programmer pengembang perangkat lunak dapat bekerja dengan data secara langsung menggunakan *syntax* dan konsep OOP (*Object Oriented Programming*) yang mana dapat memudahkan pengguna untuk mengembangkan web lebih efisien dan aman.\
+    Seperti yang sudah disinggung di poin sebelumnya bahwa Django memiliki fitur built-in seperti ORM. Model Django disebut sebagai ORM karena mereka menggunakan teknik Object-Relational Mapping yang mana digunakan untuk memetakan kelas dan object python ke tabel dan baris data relasional. Dengan ORM, programmer pengembang perangkat lunak dapat bekerja dengan data secara langsung menggunakan *syntax* dan konsep OOP (*Object Oriented Programming*) yang mana dapat memudahkan pengguna untuk mengembangkan web lebih efisien dan aman.
 
 ### Terima kasih
