@@ -18,7 +18,7 @@
 ✔  Melakukan deployment ke PWS terhadap aplikasi yang sudah dibuat sehingga nantinya dapat diakses oleh teman-temanmu melalui Internet.\
 ✔  Membuat sebuah README.md yang berisi tautan menuju aplikasi PWS yang sudah di-deploy, serta jawaban dari beberapa pertanyaan berikut.\
 
-### 1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).\
+### 1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 jawab:\
     Sebelum membuat sebuah proyek Django baru, kita harus menginstalasi Django terlebih dahulu dan mengaktifkan *Virtual Environtment*. Fungsi *Virtual Environtment* sendiri adalah memungkinkan user untuk memiliki beberapa versi pake bahasa pemrograman dan pemrograman lain di komputer sama, sekaligus menjaga agar *package* dan *dependedncies* dari aplikasi tetap terisolasi sehingga tidak menimbulkan konflik.\
     \
@@ -41,13 +41,36 @@ jawab:\
     Terakhir edit `urls.py` yang ada dalam proyek RiiPedia, bukan didalam folder main. Tambahkan `path('', include('main.urls')),` untuk mengarahkan rute yang telah didefinisikan di `urls.py` yang ada di aplikasi `main`. Semua langkah sudah dilakukan dan hanya tinggal jalankan perintah `python manage.py runserver` dan buka http://localhost:8000/. Untuk tugas saya, saya sudah membuat file unit test namun belum sepenuhnya benar karena masih error saat menjalankannya.\
     \
     Karena tugas ini juga perlu di deployment melalui PWS jadi saya perlu menambahkan string **"http://hadyan-fachri-riipedia.pbp.cs.ui.ac.id/"** di `ALLOWED_HOSTS` yang ada di settings.py di dalam proyek RiiPedia. Kemudian `git remote add pws http://pbp.cs.ui.ac.id/hadyan.fachri/riipedia` lalu `git branch -M master`, dan `git push pws master`. Perintah tersebut akan melakukan push program ke PWS buka ke github. Namun sebaiknya add, commit dan push terlebih dahulu ke repository github sebelum di deploy di PWS. Jika ada perubahan, bisa jalankan perintah `git push pws main:master` untuk memperbaharui proyek ini.\
-    \
-### 2. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.\
+    
+### 2. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.
 jawab:\
     ![bagan django](https://github.com/user-attachments/assets/69a62625-cb79-4f12-8211-ae7f132bbad7)\
     penjelasan sudah ada di dalam bagan\
     \
 ### 3. Jelaskan fungsi git dalam pengembangan perangkat lunak!
-    jawab:\
-
+jawab:\
+    1. **Version Control System\
+    Git memungkinkan pengembang untuk melacak perubahan pada kode sumber proyek dari waktu ke waktu. Setiap perubahan yang dilakukan dapat disimpan sebagai sebuah *"commit"*, yang dapat dilihat kembali atau diubah jika diperlukan. Ini membantu dalam menjaga riwayat perubahan yang jelas, serta mempermudah dalam menemukan dan memperbaiki bug.\
+    \
+    2. **Branching dan Merging**\
+    Git mendukung pembuatan cabang untuk mengembangkan fitur-fitur baru atau memperbaiki bug tanpa mempengaruhi kode utama. Fitur ini memungkinkan pengembang untuk mengembangkan fitur baru secara paralel, yang kemudian bisa diuji dan digabungkan kembali dengan kode utama jika sudah siap.\
+    \
+    3. **Collaboration**\
+    \
+    Dalam proyek perangkat lunak besar, banyak pengembang yang bekerja bersama pada kode sumber yang sama. Git memungkinkan banyak pengembang untuk bekerja pada cabang (*branches*) yang berbeda tanpa mengganggu pekerjaan satu sama lain. Setelah pekerjaan selesai, cabang-cabang tersebut dapat digabungkan (*merge*) ke dalam cabang utama (`main`) atau cabang pengembangan lainnya.\
+    \
+    4. **Distributed Storage and Offline Work**\
+    Git adalah sistem kontrol versi terdistribusi, yang berarti setiap pengembang memiliki salinan penuh dari repositori di komputer mereka. Ini memungkinkan mereka untuk bekerja secara offline dan melakukan commit lokal, dan kemudian menggabungkan pekerjaan mereka dengan server pusat (*remote repository*) ketika kembali online.\
+    \
+    5. **Backup and recovery**\
+    Dengan Git, pengembang dapat dengan mudah mengembalikan proyek ke versi sebelumnya jika terjadi kesalahan atau bug setelah perubahan kode. Ini memberikan keamanan dan fleksibilitas untuk user dalam pengembangan perangkat lunak, karena setiap commit menyimpan *snapshot* atau alur commit kita dari kode proyek pada waktu tertentu.\
+    \
+    6. **Integration with CI/CD Tools**\
+    Git biasanya terintegrasi dengan alat **CI/CD** (*Continuous Integration/Continuous Deployment*). Integrasi ini memungkinkan otomatis pengujian, build, dan deployment setiap kali ada perubahan kode yang di push ke repositori, meningkatkan efisiensi dan kualitas perangkat lunak.\
+    \
+    7. **Tracking**\
+    Git menyediakan riwayat perubahan kode yang jelas, siapa yang membuat perubahan, kapan perubahan itu dibuat, dan mengapa perubahan tersebut dilakukan terlihat dari commit atau perintah yang kita jalankan. Ini sangat penting untuk mereview kode, dan pemeliharaan di masa depan atau jangka panjang.\
+    \
+### 4. Menurut Anda, dari semua framework yang ada, mengapa framework Django dijadikan permulaan pembelajaran pengembangan perangkat lunak?
+jawab:\
     
