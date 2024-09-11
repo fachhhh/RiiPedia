@@ -46,10 +46,10 @@ jawab:\
 jawab:\
     ![bagan django](https://github.com/user-attachments/assets/69a62625-cb79-4f12-8211-ae7f132bbad7)\
     penjelasan sudah ada di dalam bagan\
-    \
+    
 ### 3. Jelaskan fungsi git dalam pengembangan perangkat lunak!
 jawab:\
-    1. **Version Control System\
+    1. **Version Control System**\
     Git memungkinkan pengembang untuk melacak perubahan pada kode sumber proyek dari waktu ke waktu. Setiap perubahan yang dilakukan dapat disimpan sebagai sebuah *"commit"*, yang dapat dilihat kembali atau diubah jika diperlukan. Ini membantu dalam menjaga riwayat perubahan yang jelas, serta mempermudah dalam menemukan dan memperbaiki bug.\
     \
     2. **Branching dan Merging**\
@@ -70,7 +70,31 @@ jawab:\
     \
     7. **Tracking**\
     Git menyediakan riwayat perubahan kode yang jelas, siapa yang membuat perubahan, kapan perubahan itu dibuat, dan mengapa perubahan tersebut dilakukan terlihat dari commit atau perintah yang kita jalankan. Ini sangat penting untuk mereview kode, dan pemeliharaan di masa depan atau jangka panjang.\
-    \
+    
 ### 4. Menurut Anda, dari semua framework yang ada, mengapa framework Django dijadikan permulaan pembelajaran pengembangan perangkat lunak?
 jawab:\
-    
+    1. **Django dibangun diatas Python**
+    Python adalah bahasa pemrograman serbaguna yang kuat dan dapat diterapkan pada berbagai pembelajaran pengembangan perangkat lunak. Python juga adalah bahasa yang ramah bagi para programmer pemula karena memiliki *syntax* yang sederhana dan *dynamic language* sehingga pemula dapat memahaminya dengan baik.\
+    \
+    Django adalah kerangka kerja yang dibangun di atas bahawa python yang menggunakan alat - alat python untuk menyederhanakan proses pengembangan. Kerangka kerja ini membantu pengembang Anda untuk memulai dan menjalankannya; Anda akan mencapai lebih banyak hal dalam waktu yang lebih singkat dan dengan kompleksitas yang lebih sedikit pula.\
+    \
+    2. Django memiliki konsistensi dan struktur\
+    Pola design Django adalah MVT yang mana berarti Model-View-Template. MVT memiliki konsep pola yang terstruktur sehingga memudahkan pemula untuk mempelajari perangkat lunak.\
+    \
+    3. Django memiliki dokumentasi yang lengkap\
+    Django memiliki dokumentasi yang lengkap sekaligus memiliki komunitas yang sangat besar dan luas. Dokumentasi dan komunitas sangat berguna untuk pemula karena dapat membantu mereka untuk mempelajarinya dengan mudah.
+    \
+    4. Django memiliki fitur built-in\
+    Django memiliki banyak fitur built-in yang membantu pengembang web membangun aplikasi dengan cepat dan efisien. Fitur-fitur ini mencakup berbagai aspek pengembangan web, dari manajemen basis data hingga keamanan dan autentikasi. Contohnya seperti Django Admin, ORM atau Object-Relational Mapping, User Authentication and Authorization, URL Routing dan masih banyak lagi.\
+    \
+    5. Django cocok untuk semua skala\
+    Django sangat fleksibel dan scalable, sehingga cocok untuk membangun berbagai jenis proyek, mulai dari proyek kecil dan sederhana hingga aplikasi web yang besar dan kompleks. Hal ini memungkinkan pemula untuk memulai dengan proyek sederhana dan secara bertahap meningkatkan kompleksitas proyek mereka seiring kemajuan pembelajaran.\
+    \
+    6. Django memiliki keamanan yang tinggi
+    Django menangani banyak aspek keamanan web secara default, seperti perlindungan terhadap serangan SQL injection, cross-site scripting (*XSS*), dan cross-site request forgery (*CSRF*). Hal ini sangat penting untuk pemula karena mereka mungkin belum terbiasa dengan konsep keamanan dalam pengembangan web. Dengan Django, pengembang pemula dapat belajar praktik keamanan yang baik dari awal.\
+
+### 5. Mengapa model pada Django disebut sebagai ORM?
+jawab:\
+    Seperti yang sudah disinggung di poin sebelumnya bahwa Django memiliki fitur built-in seperti ORM. Model Django disebut sebagai ORM karena mereka menggunakan teknik Object-Relational Mapping yang mana digunakan untuk memetakan kelas dan object python ke tabel dan baris data relasional. Dengan ORM, programmer pengembang perangkat lunak dapat bekerja dengan data secara langsung menggunakan *syntax* dan konsep OOP (*Object Oriented Programming*) yang mana dapat memudahkan pengguna untuk mengembangkan web lebih efisien dan aman.\
+
+### Terima kasih
