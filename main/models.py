@@ -1,4 +1,5 @@
 from django.db import models
+import uuid
 
 class Ecommerce(models.Model):
     name = models.CharField(max_length=255)
