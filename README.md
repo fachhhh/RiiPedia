@@ -100,4 +100,4 @@ jawab:\
 jawab:\
     Seperti yang sudah disinggung di poin sebelumnya bahwa Django memiliki fitur built-in seperti ORM. Model Django disebut sebagai ORM karena mereka menggunakan teknik Object-Relational Mapping yang mana digunakan untuk memetakan kelas dan object python ke tabel dan baris data relasional. Dengan ORM, programmer pengembang perangkat lunak dapat bekerja dengan data secara langsung menggunakan *syntax* dan konsep **OOP** (*Object Oriented Programming*) yang mana dapat memudahkan pengguna untuk mengembangkan web lebih efisien dan aman.
 
-### Terima kasih
+## Checkpoint Tugas Individu 3
