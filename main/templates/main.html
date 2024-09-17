@@ -12,13 +12,13 @@
     <h4>PBP E-Commerce Project by {{ name }} ({{ npm }})</h4>
     <h4>{{ class }}</h4>
     
-    <hr> <!-- Horizontal line for separation -->
     {% if not product_entries %}
     <p>Belum ada produk yang ditambahkan ke e-commerce ini</p>
     {% else %}
         <!-- Loop through products -->
         {% for product_entry in product_entries %}
         <!-- Book Information Section -->
+        <hr> <!-- Horizontal line for separation -->
         <div class="book-info">
             <!-- Product Title -->
             <h2><u>{{ product_entry.name }}</u></h2> <!-- Underlined for emphasis -->
@@ -35,7 +35,6 @@
         <hr> <!-- Horizontal line for separation -->
         {% endfor %}
     {% endif %}
-    <hr> <!-- Horizontal line for separation -->
     <a href="{% url 'main:create_product_entry' %}">
         <button>Add New Product</button></a>
 </body>
