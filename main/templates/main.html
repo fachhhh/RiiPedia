@@ -4,6 +4,27 @@
 <html>
 <head>
     <title>RiiPedia</title>
+    <style>
+        /* Mengatur tata letak grid dengan 3 kolom */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Tiga kolom yang sama lebar */
+            gap: 20px; /* Jarak antar produk */
+            margin-top: 20px;
+        }
+        .product-grid .book-info {
+            border: 1px solid #ccc; /* Memberikan border pada setiap produk */
+            padding: 15px; /* Ruang di dalam setiap produk */
+            text-align: center; /* Mengatur teks agar rata tengah */
+        }
+        .product-grid .book-info h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        .product-grid .book-info h3 {
+            color: #f00; /* Ubah warna harga menjadi merah */
+        }
+    </style>
 </head>
 
 <body>
@@ -15,25 +36,25 @@
     {% if not product_entries %}
     <p>Belum ada produk yang ditambahkan ke e-commerce ini</p>
     {% else %}
-        <!-- Loop through products -->
-        {% for product_entry in product_entries %}
-        <!-- Book Information Section -->
-        <hr> <!-- Horizontal line for separation -->
-        <div class="book-info">
-            <!-- Product Title -->
-            <h2><u>{{ product_entry.name }}</u></h2> <!-- Underlined for emphasis -->
-            
-            <!-- Product Price -->
-            <h3>Price: <strong>Rp{{ product_entry.price }},00</strong></h3> <!-- Bolded for emphasis -->
+        <!-- Grid untuk menampilkan produk -->
+        <div class="product-grid">
+            {% for product_entry in product_entries %}
+            <!-- Informasi Produk -->
+            <div class="book-info">
+                <!-- Judul Produk -->
+                <h2><u>{{ product_entry.name }}</u></h2>
+                
+                <!-- Harga Produk -->
+                <h3>Price: <strong>Rp{{ product_entry.price }},00</strong></h3>
 
-            <!-- Product Quantity -->
-            <p><em>Terjual:</em> {{ product_entry.quantity }}</p> <!-- Italics for emphasis -->
+                <!-- Jumlah Terjual -->
+                <p><em>Stock:</em> {{ product_entry.quantity }}</p>
 
-            <!-- Product Description -->
-            <p><strong>Description:</strong> {{ product_entry.description }}</p> <!-- Bolded for emphasis -->
+                <!-- Deskripsi Produk -->
+                <p><strong>Description:</strong> {{ product_entry.description }}</p>
+            </div>
+            {% endfor %}
         </div>
-        <hr> <!-- Horizontal line for separation -->
-        {% endfor %}
     {% endif %}
     <a href="{% url 'main:create_product_entry' %}">
         <button>Add New Product</button></a>
