@@ -122,4 +122,7 @@ Jawab:\
 Jawab:\
     Ada benarnya bahwa JSON dikenal lebih populer dan lebih baik namun tidak menutup kemungkinan bahwa XML adalah metode data delivery yang buruk.\
     1. **JSON lebih sederhana dan ringkas**\
-    JSON mempunyai struktur yang sederhana dibanding XML yag terdiri dari *key-value-pairs* yang mana mirip dictionary yang ada di python. Sedangkan XML menggunakan tag yang mirip dengan HTML dan cendedrung menghasilkan file yang lebih besar.
+    JSON mempunyai struktur yang sederhana dibanding XML yag terdiri dari *key-value-pairs* yang mana mirip dictionary yang ada di python. Sedangkan XML menggunakan tag yang mirip dengan HTML dan cendedrung menghasilkan file yang lebih besar.\
+    2. **Mudah dibaca dan ditulis**
+    Karena JSON memiliki struktur yang sederhana, JSON mudah untuk dibaca dan ditulis dibanding XML. XML lebih rumit dan memiliki banyak tag sehingga XML sulit untuk diinterpretasikan.\
+    3. 
