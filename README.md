@@ -101,3 +101,29 @@ jawab:\
     Seperti yang sudah disinggung di poin sebelumnya bahwa Django memiliki fitur built-in seperti ORM. Model Django disebut sebagai ORM karena mereka menggunakan teknik Object-Relational Mapping yang mana digunakan untuk memetakan kelas dan object python ke tabel dan baris data relasional. Dengan ORM, programmer pengembang perangkat lunak dapat bekerja dengan data secara langsung menggunakan *syntax* dan konsep **OOP** (*Object Oriented Programming*) yang mana dapat memudahkan pengguna untuk mengembangkan web lebih efisien dan aman.
 
 ## Checkpoint Tugas Individu 3
+✔  Membuat input form untuk menambahkan objek model pada app sebelumnya.\
+✔  Tambahkan 4 fungsi views baru untuk melihat objek yang sudah ditambahkan dalam format XML, JSON, XML by ID, dan JSON by ID.\
+✔  Membuat routing URL untuk masing-masing views yang telah ditambahkan pada poin 2.\
+✔  Menjawab beberapa pertanyaan berikut pada README.md pada root folder.
+
+### 1. Jelaskan mengapa kita memerlukan data delivery dalam pengimplementasian sebuah platform?
+Jawab:\
+    Ada beberapa alasan mengapa kita memerlukan data delivery dalam pengimplementasian sebuah platform.\
+    1. **Data yang konsisten**\
+    Data delivery berperan sebagai jembatan antara pengguna dan sistem untuk memastikan informasi yang dibutuhkan tersedia dengan cepat, akurat dan dapat diakses dengan mudah. XML dan JSOn adalah format yag sering digunakan untuk mentransfer data antar platform atau sistem. Data delivery yang efisien dapat memastikan bahwa data dalam format XML dan JSON selalu tersedia dan dapat diakses oleh pengguna lain secara konsisten.\
+
+    2. **Kecepatan dan efisiensi**\
+    XML dan JSON mendukung pengiriman data yang cepat dan efisien karena format yang ringan dan dapat diproses dengan mudah dengan berbagai sistem misalnya langsung membukanya di browser atau menggunakan postman.\
+
+    3. **Pengolahan data skala besar**\
+    Sering kali XML dan JSON digunakan untuk menangani data dalam jumlah besar. Data delivery yang baik memungkinkan pemrosesan dan pengiriman data dalam jumlah besar tanpa mengurangi kinerja platform dan efisiensi.\
+
+    4. **Skalabilitas**\
+    Karena data delivery dapat menangani data skala yang besar, sistem dapat menangani skala besar tersebut dengan stabil dan lancar.
+
+### Menurutmu, mana yang lebih baik antara XML dan JSON? Mengapa JSON lebih populer dibandingkan XML?
+Jawab:\
+    Ada benarnya bahwa JSON dikenal lebih populer dan lebih baik namun tidak menutup kemungkinan bahwa XML adalah metode data delivery yang buruk.\
+
+    1. **JSON lebih sederhana dan ringkas**\
+    JSON mempunyai struktur yang sederhana dibanding XML yag terdiri dari *key-value-pairs* yang mana mirip dictionary yang ada di python. Sedangkan XML menggunakan tag yang mirip dengan HTML dan cendedrung menghasilkan file yang lebih besar.
