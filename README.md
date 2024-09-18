@@ -167,4 +167,8 @@ Jawab:\
     \
     Sedikit perubahan dari saya adalah pada `CSRF_TRUSTED_ORIGINS` yang ada di `settings.py`. Saya hanya menambahkan link menuju local host "http://localhost" dan "http://localhost". Karena jika saya menambahkan link pws http dan https saya, build saya di pws akan error. Namun perlu membuat deploy.yml dan membuat PWS_URL pada secret and variables di github.
 
+### Dokumentasi Postman untuk XML dan JSON
+http://hadyan-fachri-riipedia.pbp.cs.ui.ac.id/xml/
+<img width="960" alt="xml" src="https://github.com/user-attachments/assets/6b6493af-1d45-46f9-8b28-4566c6e76436">
+
 ## Terima Kasih
