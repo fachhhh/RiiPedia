@@ -170,11 +170,11 @@ Jawab:\
 ### Dokumentasi Postman untuk XML dan JSON
 **Dokumentasi XML**\
 *http://hadyan-fachri-riipedia.pbp.cs.ui.ac.id/xml/*
-<img width="960" alt="xml" src="https://github.com/user-attachments/assets/6b6493af-1d45-46f9-8b28-4566c6e76436">\
+<img width="960" alt="xml" src="https://github.com/user-attachments/assets/6b6493af-1d45-46f9-8b28-4566c6e76436">
 
 **Dokumentasi JSON**\
 *http://hadyan-fachri-riipedia.pbp.cs.ui.ac.id/json/*
-<img width="960" alt="image" src="https://github.com/user-attachments/assets/2472c4db-1047-4dc8-8e3c-f872bb0e1c2c">\
+<img width="960" alt="image" src="https://github.com/user-attachments/assets/2472c4db-1047-4dc8-8e3c-f872bb0e1c2c">
 
 **Dokumentasi XML dengan UUID**\
 *http://hadyan-fachri-riipedia.pbp.cs.ui.ac.id/xml/a4c0a56b-5264-47dd-afb5-8c58312e0990/*
