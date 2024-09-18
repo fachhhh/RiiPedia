@@ -135,7 +135,7 @@ Jawab:\
     3. **Parsing lebih cepat dan sederhana**\
     Karena JSON memiliki struktur yang sederhana, parsing JSON dapat lebih cepat. Struktur JSON dapat langsung mendekati objek dalam banyak bahasa pemrograman dan mempermudah konversi JSON ke struktur data asli misalnya ke array atau dictionary. Sedangkan parsing XML rumit dan lambat karena memerlukan langkah langkah yang dapat memisahkan antara satu tag dengan tag lainnya.
     
-### Jelaskan fungsi dari method is_valid() pada form Django dan mengapa kita membutuhkan method tersebut?
+### 3. Jelaskan fungsi dari method is_valid() pada form Django dan mengapa kita membutuhkan method tersebut?
 Jawab:\
     Menurut saya fungsi method `is_valid()` diperlukan karena method tersebut digunakan untuk validasi data yang telah user input ke dalam formulir `create_product_entry.html`. Method `is_valid()` juga digunakan dalam membersihkan data sekaligus menyimpan data tersebut jika mengembalikan nilai `True`. Selain kegunaan diatas `is_valid()` juga dapat digunakan untuk keamanan data seperti input yang tidak sesuai field yang ditetapkan.
 
@@ -165,7 +165,7 @@ Jawab:\
     \
     Dibagian ini setelah menambahkan data produk kedalam website, diperlukan data - data yang sudah diinput kedalam format XML dan JSON. Caranya adalah membuat fungsi `show_xml` dan `show_json`. Kedua fungsi tersebut menampilkan data yang sudah diinput user ke form yang ada di dalam website secara keseluruhan atau semuanya. Lalu buat juga fungsi `show_xml_by_id` dan `show_json_by_id`. Kedua fungsi tersebut sama dengan fungsi sebelumnya namun fungsi yang ini dapat menampilkan private key yang berbentuk UUID. Setelah semua fungsi sudah dibuat, saya menambahkan import pada `urls.py` pada folder `main` seperti ini `from main.views import show_main, create_product_entry, show_xml, show_json, show_xml_by_id, show_json_by_id` dan tambahkan path menuju XML atay JSON di `urlpatterns`.\
     \
-    Sedikit perubahan dari saya adalah pada `CSRF_TRUSTED_ORIGINS` yang ada di `settings.py`. Saya hanya menambahkan link menuju local host "http://localhost" dan "http://localhost". Karena jika saya menambahkan link pws http dan https saya, build saya di pws akan error. Namun perlu membuat deploy.yml dan membuat PWS_URL pada secret and variables di github.
+    Sedikit perubahan dari saya adalah pada `CSRF_TRUSTED_ORIGINS` yang ada di `settings.py`. Saya hanya menambahkan link menuju local host "http://localhost" dan "http://127.0.0.1". Karena jika saya menambahkan link pws http dan https saya, build saya di pws akan error. Namun perlu membuat deploy.yml dan membuat PWS_URL pada secret and variables di github.
 
 ### Dokumentasi Postman untuk XML dan JSON
 **Dokumentasi XML**\
