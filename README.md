@@ -18,7 +18,7 @@
 ✔  Melakukan deployment ke PWS terhadap aplikasi yang sudah dibuat sehingga nantinya dapat diakses oleh teman-temanmu melalui Internet.\
 ✔  Membuat sebuah README.md yang berisi tautan menuju aplikasi PWS yang sudah di-deploy, serta jawaban dari beberapa pertanyaan berikut.
 
-link pws\
+## Link PWS
 http://hadyan-fachri-riipedia.pbp.cs.ui.ac.id/
 
 ### 1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
@@ -137,7 +137,7 @@ Jawab:\
     
 ### Jelaskan fungsi dari method is_valid() pada form Django dan mengapa kita membutuhkan method tersebut?
 Jawab:\
-    Menurut saya fungsi method `is_valid()` diperlukan karena method tersebut digunakan untuk validasi data yang telah user input ke dalam formulir `create_product_entry.html`. Method`is_valid()` juga digunakan dalam membersihkan data sekaligus menyimpan data tersebut jika mengembalikan nilai `True`. Selain kegunaan diatas `is_valid()` juga dapat digunakan untuk keamanan data seperti input yang tidak sesuai field yang ditetapkan.
+    Menurut saya fungsi method `is_valid()` diperlukan karena method tersebut digunakan untuk validasi data yang telah user input ke dalam formulir `create_product_entry.html`. Method `is_valid()` juga digunakan dalam membersihkan data sekaligus menyimpan data tersebut jika mengembalikan nilai `True`. Selain kegunaan diatas `is_valid()` juga dapat digunakan untuk keamanan data seperti input yang tidak sesuai field yang ditetapkan.
 
 ### 4. Mengapa kita membutuhkan csrf_token saat membuat form di Django? Apa yang dapat terjadi jika kita tidak menambahkan csrf_token pada form Django? Bagaimana hal tersebut dapat dimanfaatkan oleh penyerang?
 Jawab:\
@@ -145,4 +145,26 @@ Jawab:\
     \
     Selain itu token CSRF berguna untuk verifikasi permiataan POST yang berasal dari aplikasi atau halaman web yang sah di aplikasi tersebut dan bukan sumber lain. Maka dari itu jika kita tidak menambahkan `csrf_token`, hacker dapat membuat user yang sedadng login tanpa sadar megirimkan permintaan yang tidak diinginkan ke dalam aplikasi atau halaman web.
 
-### 
+### 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+Jawab:\
+    Setelah mengerjakan Tugas Individu 2 minggu lalu, saya melanjutkannya dengan membuat folder `templates` di dalam direktori `main` dan isi folder tsb dengan `base.html` yang nantinya akan digunakan sebagai template dasar yang berfungsi sebagai kerangka umum untuk halaman web lainnya. Jadi fondasi awal html untuk website akan berada di `base.html` dan bukan lagi di `main.html`.\
+    \
+    Kemudian tambahkan `BASE_DIR / 'templates'` pada file `settings.py` dan pada list variable `TEMPLATES`. Langkah tsb menunjukkan bahwa folder templates yang ada di dalam BASE_DIR (direktori dasar proyek) digunakan untuk menyimpan file template dan `APP_DIRS` digunakan untuk mengaktifkan pencarian file template di dalam setiap aplikasi Django yang ada di proyek tersebut.\
+    \
+    Langkah selanjutnya saya mengubah kode `main.html` yang ada di folder `main/templates` dengan menambahkan `{% extends 'base.html' %}` dan `{% block content %}` di awal kode dan `{% endblock content %}` di akhir kode yang berfungsi untuk menjadikan `base.html` sebagai template utama dan `main.html` sebagai template turunan/extend dari `base.html`.\
+    \
+    Setelah mengubah template per-html-an ini, saya mengubah primary key pada berkas `models.py` dari integer menjadi **UUID**. **UUID** adalah rangkaian alfanumerik berisi 36 karakter yang dapat digunakan untuk mengidentifikasi informasi. UUID sering digunakan, misalnya, untuk mengidentifikasi baris data dalam tabel basis data, dengan setiap baris diberi UUID tertentu. UUID menjadi salah celah terhadap keamanan aplikasi Django karena perlu dilakukan enumerasi terhadap ID dari objek yang terdapat pada aplikasi.\
+    \
+    Menambahkan UUID pada `models.py` dengan cara menambahkan `import uuid` dan baris `id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)`. Penjelasan sedikit tentang baris tsb, primary_key = True adalah dimana primary yang sebelumnya integer diubah menjadi UUID. Default adalah versi terbaru dari UUID4 dan editable = False adalah dimana UUID tersebut tidak dapat diedit dan bersifat tetap. Kemudian sebelum melakukan langkah `python manage.py makemigrations` dan `python manage.py migrate`, perlu menghapus file basis data `**db.sqlite3**` karena file tersebut akan menimbulkan error jika kita melakukan *makemigration* dan *migrate*.\
+    \
+    Setelah langkah - langkah diatas, saya membuat `forms.py` yang akan berhubungan dengan `models.py`. Di `forms.py` ini akan berisi import `Ecommerce`, import ModelForm dan  class `EcommerceEntryForm` yang berisikan `model = Ecommerce` dan fields yang sudah di definisikan pada class `Ecommerce` pada file `models.py`. Pindah ke views.py dan buat fungsi `create_product_entry` untuk menerima parameter request dan berfungsi untuk membuat `MoodEntryForm` baru dengan memasukkan *QueryDict* berdasarkan input dari user pada `request.POST`, memvalidasi isi input dari form, membuat dan menyimpan data dari form dan melakukan redirect ke fungsi `show_main` pada views aplikasi `main` setelah data form berhasil disimpan. Setelah itu menambahkan path di `urls.py` yng ada di folder `main` dengan menambahkan `path('create-mood-entry', create_mood_entry, name='create_mood_entry'),` didalam `urlpatterns`.\
+    \
+    Kemudian saya membuat file `create_product_entry.html` yang digunakan untuk membuat halaman web yang berisi input nama produk, harga, kuantitas dan deskripsi dari barang yang ingin ditambahkan ke database dan di tampilkan di `main.html`.\
+    \
+    Lalu pada `main.html` buat conditionals dengan if else yang mana akan menampilkan produk jika sudah ditambahkan dan menampilkan tulisan `Belum ada produk yang ditambahkan ke e-commerce ini` jika belum ada barang yang ditambahkan.\
+    \
+    Dibagian ini setelah menambahkan data produk kedalam website, diperlukan data - data yang sudah diinput kedalam format XML dan JSON. Caranya adalah membuat fungsi `show_xml` dan `show_json`. Kedua fungsi tersebut menampilkan data yang sudah diinput user ke form yang ada di dalam website secara keseluruhan atau semuanya. Lalu buat juga fungsi `show_xml_by_id` dan `show_json_by_id`. Kedua fungsi tersebut sama dengan fungsi sebelumnya namun fungsi yang ini dapat menampilkan private key yang berbentuk UUID. Setelah semua fungsi sudah dibuat, saya menambahkan import pada `urls.py` pada folder `main` seperti ini `from main.views import show_main, create_product_entry, show_xml, show_json, show_xml_by_id, show_json_by_id` dan tambahkan path menuju XML atay JSON di `urlpatterns`.\
+    \
+    Sedikit perubahan dari saya adalah pada `CSRF_TRUSTED_ORIGINS` yang ada di `settings.py`. Saya hanya menambahkan link menuju local host "http://localhost" dan "http://localhost". Karena jika saya menambahkan link pws http dan https saya, build saya di pws akan error. Namun perlu membuat deploy.yml dan membuat PWS_URL pada secret and variables di github.
+
+## Terima Kasih
