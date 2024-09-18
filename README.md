@@ -168,7 +168,20 @@ Jawab:\
     Sedikit perubahan dari saya adalah pada `CSRF_TRUSTED_ORIGINS` yang ada di `settings.py`. Saya hanya menambahkan link menuju local host "http://localhost" dan "http://localhost". Karena jika saya menambahkan link pws http dan https saya, build saya di pws akan error. Namun perlu membuat deploy.yml dan membuat PWS_URL pada secret and variables di github.
 
 ### Dokumentasi Postman untuk XML dan JSON
-http://hadyan-fachri-riipedia.pbp.cs.ui.ac.id/xml/
-<img width="960" alt="xml" src="https://github.com/user-attachments/assets/6b6493af-1d45-46f9-8b28-4566c6e76436">
+**Dokumentasi XML**\
+*http://hadyan-fachri-riipedia.pbp.cs.ui.ac.id/xml/*
+<img width="960" alt="xml" src="https://github.com/user-attachments/assets/6b6493af-1d45-46f9-8b28-4566c6e76436">\
+
+**Dokumentasi JSON**\
+*http://hadyan-fachri-riipedia.pbp.cs.ui.ac.id/json/*
+<img width="960" alt="image" src="https://github.com/user-attachments/assets/2472c4db-1047-4dc8-8e3c-f872bb0e1c2c">\
+
+**Dokumentasi XML dengan UUID**\
+*http://hadyan-fachri-riipedia.pbp.cs.ui.ac.id/xml/a4c0a56b-5264-47dd-afb5-8c58312e0990/*
+![image](https://github.com/user-attachments/assets/4603540d-162d-4018-9397-8fa162237851)
+
+**Dokumentasi JSON dengan UUID**\
+*http://hadyan-fachri-riipedia.pbp.cs.ui.ac.id/json/a4c0a56b-5264-47dd-afb5-8c58312e0990/*
+![image](https://github.com/user-attachments/assets/434d7918-3b8b-4f23-8409-81236540bfe2)
 
 ## Terima Kasih
