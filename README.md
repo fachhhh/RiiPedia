@@ -109,20 +109,40 @@ jawab:\
 ### 1. Jelaskan mengapa kita memerlukan data delivery dalam pengimplementasian sebuah platform?
 Jawab:\
     Ada beberapa alasan mengapa kita memerlukan data delivery dalam pengimplementasian sebuah platform.\
+    \
     1. **Data yang konsisten**\
     Data delivery berperan sebagai jembatan antara pengguna dan sistem untuk memastikan informasi yang dibutuhkan tersedia dengan cepat, akurat dan dapat diakses dengan mudah. XML dan JSOn adalah format yag sering digunakan untuk mentransfer data antar platform atau sistem. Data delivery yang efisien dapat memastikan bahwa data dalam format XML dan JSON selalu tersedia dan dapat diakses oleh pengguna lain secara konsisten.\
+    \
     2. **Kecepatan dan efisiensi**\
     XML dan JSON mendukung pengiriman data yang cepat dan efisien karena format yang ringan dan dapat diproses dengan mudah dengan berbagai sistem misalnya langsung membukanya di browser atau menggunakan postman.\
+    \
     3. **Pengolahan data skala besar**\
     Sering kali XML dan JSON digunakan untuk menangani data dalam jumlah besar. Data delivery yang baik memungkinkan pemrosesan dan pengiriman data dalam jumlah besar tanpa mengurangi kinerja platform dan efisiensi.\
+    \
     4. **Skalabilitas**\
     Karena data delivery dapat menangani data skala yang besar, sistem dapat menangani skala besar tersebut dengan stabil dan lancar.
 
 ### 2. Menurutmu, mana yang lebih baik antara XML dan JSON? Mengapa JSON lebih populer dibandingkan XML?
 Jawab:\
     Ada benarnya bahwa JSON dikenal lebih populer dan lebih baik namun tidak menutup kemungkinan bahwa XML adalah metode data delivery yang buruk.\
+    \
     1. **JSON lebih sederhana dan ringkas**\
     JSON mempunyai struktur yang sederhana dibanding XML yag terdiri dari *key-value-pairs* yang mana mirip dictionary yang ada di python. Sedangkan XML menggunakan tag yang mirip dengan HTML dan cendedrung menghasilkan file yang lebih besar.\
+    \
     2. **Mudah dibaca dan ditulis**
     Karena JSON memiliki struktur yang sederhana, JSON mudah untuk dibaca dan ditulis dibanding XML. XML lebih rumit dan memiliki banyak tag sehingga XML sulit untuk diinterpretasikan.\
-    3. 
+    \
+    3. **Parsing lebih cepat dan sederhana**\
+    Karena JSON memiliki struktur yang sederhana, parsing JSON dapat lebih cepat. Struktur JSON dapat langsung mendekati objek dalam banyak bahasa pemrograman dan mempermudah konversi JSON ke struktur data asli misalnya ke array atau dictionary. Sedangkan parsing XML rumit dan lambat karena memerlukan langkah langkah yang dapat memisahkan antara satu tag dengan tag lainnya.
+    
+### Jelaskan fungsi dari method is_valid() pada form Django dan mengapa kita membutuhkan method tersebut?
+Jawab:\
+    Menurut saya fungsi method `is_valid()` diperlukan karena method tersebut digunakan untuk validasi data yang telah user input ke dalam formulir `create_product_entry.html`. Method`is_valid()` juga digunakan dalam membersihkan data sekaligus menyimpan data tersebut jika mengembalikan nilai `True`. Selain kegunaan diatas `is_valid()` juga dapat digunakan untuk keamanan data seperti input yang tidak sesuai field yang ditetapkan.
+
+### 4. Mengapa kita membutuhkan csrf_token saat membuat form di Django? Apa yang dapat terjadi jika kita tidak menambahkan csrf_token pada form Django? Bagaimana hal tersebut dapat dimanfaatkan oleh penyerang?
+Jawab:\
+    Menurut saya `csrf_token` digunakan untuk keamanan/security yang dapat mencegah serangan CSRF. `csrf_token` adalah token keamanan yang memastikan hanya pengguna yang sah yang bisa melakukan tindakan pada aplikasi web. Token ini ditambahkan setiap orang yang ingin mengisi form dalam setiap permintaan **POST** ke server.\
+    \
+    Selain itu token CSRF berguna untuk verifikasi permiataan POST yang berasal dari aplikasi atau halaman web yang sah di aplikasi tersebut dan bukan sumber lain. Maka dari itu jika kita tidak menambahkan `csrf_token`, hacker dapat membuat user yang sedadng login tanpa sadar megirimkan permintaan yang tidak diinginkan ke dalam aplikasi atau halaman web.
+
+### 
