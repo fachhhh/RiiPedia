@@ -185,3 +185,12 @@ Jawab:\
 ![image](https://github.com/user-attachments/assets/434d7918-3b8b-4f23-8409-81236540bfe2)
 
 ## Checkpoint Tugas Individu 4
+✔  Mengimplementasikan fungsi registrasi, login, dan logout untuk memungkinkan pengguna untuk mengakses aplikasi sebelumnya dengan lancar.\
+✔  Membuat dua akun pengguna dengan masing-masing tiga dummy data menggunakan model yang telah dibuat pada aplikasi sebelumnya untuk setiap akun di lokal.\
+✔  Menghubungkan model Product dengan User.\
+✔  Menampilkan detail informasi pengguna yang sedang logged in seperti username dan menerapkan cookies seperti last login pada halaman utama aplikasi.\
+✔  Menjawab beberapa pertanyaan berikut pada README.md pada root folder (silakan modifikasi README.md yang telah kamu buat sebelumnya; tambahkan subjudul untuk setiap tugas).
+
+### Apa perbedaan antara HttpResponseRedirect() dan redirect()?
+Jawab:\
+    
