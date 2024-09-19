@@ -191,6 +191,15 @@ Jawab:\
 ✔  Menampilkan detail informasi pengguna yang sedang logged in seperti username dan menerapkan cookies seperti last login pada halaman utama aplikasi.\
 ✔  Menjawab beberapa pertanyaan berikut pada README.md pada root folder (silakan modifikasi README.md yang telah kamu buat sebelumnya; tambahkan subjudul untuk setiap tugas).
 
-### Apa perbedaan antara HttpResponseRedirect() dan redirect()?
+### 1. Apa perbedaan antara HttpResponseRedirect() dan redirect()?
 Jawab:\
+    HttpResponseRedirect() dan redirect() sebenarnya memiliki fungsi yang sama yaitu digunakan untuk mengarahkan user ke URL lain namun ada beberapa hal yang membedakan antara HttpResponseRedirect() dan redirect():\
+    \
+    **HttpResponseRedirect()**
+    `HttpResponseRedirect()` adalah sebuah class di Django yang berasal dari `HttpResponse`. Dengan `HttpResponseRedirect()` akan mengembalikan respon HTTP dengan kode status 302 (redirect) dan mengambil URL tujuan sebagai parameter. Selain itu URL tujuan harus berupa string agar dapat dijadikan parameter oleh `HttpResponseRedirect()`.
+
+    from django.http import HttpResponseRedirect
+
+    def my_view(request):
+        return HttpResponseRedirect('/some-url/')
     
