@@ -205,7 +205,7 @@ Jawab:\
     def my_view(request):
         return HttpResponseRedirect('/some-url/')
     ```
-    
+
 **redirect()**
     `redirect()` adalah fungsi helper yang lebih fleksibel dan memudahkan penggunaan dibanding `HttpResponseRedirect()`. Sebenarnya `redirect()` sama dengan `HttpResponseRedirect()` karena `redirect()` menggunakan fungsi dai `HttpResponseRedirect()` namun `redirect()` memiliki fungsi dan kemampuan lebih. Ketika parameter `HttpResponseRedirect()` hanya bisa menerima argumen URL berupa string, namun `redirect()` dapat menerima argumen URL dalam bentuk string, view name, atau bahkan objek model yang memiliki `get_absolute_url()` method. Maka dari itu `redirect()` lebih fleksibel dan praktis dibanding `HttpResponseRedirect()`.\
     - Contoh penggunaan: 
@@ -217,5 +217,16 @@ Jawab:\
     return redirect('/some-url/')
     ```
 
+### 2. Jelaskan cara kerja penghubungan model MoodEntry dengan User!
+Jawab:\
+    Hubungan model MoodEntry dan User adalah pada class MoodEntry, nama user bukan lagi fixed dari program yang sudah ditentukan namun menggunakan nama user yang login. Pastinya sebelum login, user akan diarahkan untuk register dengan membuat username dan password. Username tersebut akan digunakan untuk menampilkan nama di `main.html`.\
+    \
+    Cara kerja penghubungan model MoodEntry dengan User adalah yang pertama harus mengimpor model dengan kode berikut pada file `models.py`.
 
+    ```
+    from django.contrib.auth.models import User
+    ```
 
+Kemudian pada class `MoodEntry` buat variable user yang mengguhungkan satu MoodEntry dengan satu user memalui sebuah relationship. Dalam bahasa simpelnya, Seorang user hanya mempunyai data dia seorang dan tidak tercampur dengan data user lain. Mengapa bisa begitu? di variable user di dalam class `MoodEntry` saya menggunakan **Foreign Key** yang mana in default build Django merupakan **one to one field**. Dengan adanya **Foreign Key**, program bisa merubah yang tadinya `one to one relationship` to `many to one relationship`.\
+\
+Fungsi dari foreign key misal dalam mental health tracker, ketika ada user 1 dan user 2 yang ingin register, login, dan add new mood entry. Masing masing user tersebut akan bisa melihat input form yang masing - masing user input dan data tidak akan tercampur. Namun admin akan bisa melihat data yang user 1 dan user 2 input. Intinya *bisa menampung banyak user yang berbeda beda dengan 1 database*.
