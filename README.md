@@ -195,11 +195,27 @@ Jawab:\
 Jawab:\
     HttpResponseRedirect() dan redirect() sebenarnya memiliki fungsi yang sama yaitu digunakan untuk mengarahkan user ke URL lain namun ada beberapa hal yang membedakan antara HttpResponseRedirect() dan redirect():\
     \
-    **HttpResponseRedirect()**
-    `HttpResponseRedirect()` adalah sebuah class di Django yang berasal dari `HttpResponse`. Dengan `HttpResponseRedirect()` akan mengembalikan respon HTTP dengan kode status 302 (redirect) dan mengambil URL tujuan sebagai parameter. Selain itu URL tujuan harus berupa string agar dapat dijadikan parameter oleh `HttpResponseRedirect()`.
+**HttpResponseRedirect()**
+    `HttpResponseRedirect()` adalah sebuah class di Django yang berasal dari `HttpResponse`. Dengan `HttpResponseRedirect()` akan mengembalikan respon HTTP dengan kode status 302 (redirect) dan mengambil URL tujuan sebagai parameter. Selain itu URL tujuan harus berupa string agar dapat dijadikan parameter oleh `HttpResponseRedirect()`.\
+    - Contoh Penggunaan:
 
+    ```
     from django.http import HttpResponseRedirect
 
     def my_view(request):
         return HttpResponseRedirect('/some-url/')
+    ```
     
+**redirect()**
+    `redirect()` adalah fungsi helper yang lebih fleksibel dan memudahkan penggunaan dibanding `HttpResponseRedirect()`. Sebenarnya `redirect()` sama dengan `HttpResponseRedirect()` karena `redirect()` menggunakan fungsi dai `HttpResponseRedirect()` namun `redirect()` memiliki fungsi dan kemampuan lebih. Ketika parameter `HttpResponseRedirect()` hanya bisa menerima argumen URL berupa string, namun `redirect()` dapat menerima argumen URL dalam bentuk string, view name, atau bahkan objek model yang memiliki `get_absolute_url()` method. Maka dari itu `redirect()` lebih fleksibel dan praktis dibanding `HttpResponseRedirect()`.\
+    - Contoh penggunaan: 
+
+    ```
+    from django.shortcuts import redirect
+
+    def my_view(request):
+    return redirect('/some-url/')
+    ```
+
+
+
