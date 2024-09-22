@@ -1,13 +1,16 @@
+import datetime
 from django.shortcuts import render, redirect
 from main.forms import EcommerceEntryForm
 from main.models import Ecommerce
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.core import serializers
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from django.contrib.auth import authenticate, login
-from django.contrib.auth import logout
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+from django.urls import reverse
 
+@login_required(login_url='/login')
 def show_main(request):
     product_entries = Ecommerce.objects.all()
     context = {
@@ -15,7 +18,8 @@ def show_main(request):
         'name' : 'Hadyan Fachri',
         'npm' : '2306245030',
         'class' : 'PBP A',
-        'product_entries' : product_entries
+        'product_entries' : product_entries,
+        'last_login' : request.COOKIES['last_login'],
     }
 
     return render(request, "main.html", context)
@@ -61,8 +65,11 @@ def register(request):
             form.save()
             messages.success(request, "Your account has been successfully created!")
             return redirect('main:show_main')
-        context = {'form' : form}
-        return render(request, 'register.html', context)
+    
+    # hati hati salah identasi
+    context = {'form' : form}
+    return render(request, 'register.html', context)
+
     
 def login_user(request):
     if request.method == 'POST':
@@ -71,7 +78,9 @@ def login_user(request):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            return redirect('main:show_main')
+            response = HttpResponseRedirect(reverse("main:show_main"))
+            response.set_cookie('last_login', str(datetime.datetime.now()))
+            return response
         
     else:
         form = AuthenticationForm(request)
@@ -80,5 +89,7 @@ def login_user(request):
 
 def logout_user(request):
     logout(request)
-    return redirect('main:login')
+    response = HttpResponseRedirect(reverse('main:login'))
+    response.delete_cookie('last_login')
+    return response
 
