@@ -15,7 +15,7 @@ def show_main(request):
     product_entries = Ecommerce.objects.all()
     context = {
         'ecommerce' : 'RiiPedia',
-        'name' : 'Hadyan Fachri',
+        'name' : request.user.username,
         'npm' : '2306245030',
         'class' : 'PBP A',
         'product_entries' : product_entries,
@@ -28,7 +28,9 @@ def create_product_entry(request):
     form = EcommerceEntryForm(request.POST or None)
 
     if form.is_valid() and request.method == "POST":
-        form.save()
+        product_entry = form.save(commit=False)
+        product_entry.user = request.user
+        product_entry.save()
         return redirect('main:show_main')
     
     context = {'form':form}
