@@ -260,4 +260,19 @@ Jawab:\
 Jawab:\
     Yang pertama saya lakukan adalah mengimport library seperti `UserCreationForm` dan `messages` untuk membuat fungsi register lalu membuat `register.html` dan mengatur path url di `urls.py`. Selanjutnya buat fungsi login, logout dan mengatur `login required` pada `views.py`. Buat `login.html` untuk tempat user/client login. Tombol Logout berada di `main.html`.\
     \
-    Yang 
+    Yang kedua, setelah membuat fungsi fungsi diatas, saya sudah membuat dua akun berbeda dengan masing - masing memiliki 3 data dummy.\
+    Data pertama untuk user akun **budi**\
+    ![alt text](image-3.png)\
+    Data kedua untuk user akun **andi**\
+    ![alt text](image-4.png)\
+    \
+    Selanjutnya cara saya untuk menghubungkan product dengan user adalah dibagian fungsi `show_main(request)` pada `views.py` baris `product_entries = Ecommerce.objects.filter(user=request.user)` yang mana product entry yang ditampilkan pada `main.html` akan di filter sesuai user masing masing. Sebelum itu pada class `Ecommerce` saya membuat variable user dengan isi `user = models.ForeignKey(User, on_delete=models.CASCADE)` untuk mengubah relationship Django yang by default `one to one relationship` menjadi `many to one relationship`.\
+    \
+    Untuk cookies dan session pada saat user budi dan andi login\
+    **budi**\
+    ![alt text](image-2.png)\
+    **andi**\
+    ![alt text](image-1.png)\
+
+### Terima kasih
+

@@ -30,8 +30,10 @@
 <body>
     <!-- Main Title -->
     <h1>{{ ecommerce }}</h1>
-    <h4>PBP E-Commerce Project by {{ name }} ({{ npm }})</h4>
+    <h4>PBP E-Commerce Project by Hadyan Fachri ({{ npm }})</h4>
+    <h4>User: {{ name }}</h4>
     <h4>{{ class }}</h4>
+    <h4>Sesi terakhir login: {{last_login}}</h4>
     
     {% if not product_entries %}
     <p>Belum ada produk yang ditambahkan ke e-commerce ini</p>
