@@ -272,7 +272,7 @@ Jawab:\
     **budi**\
     ![alt text](image-2.png)\
     **andi**\
-    ![alt text](image-1.png)\
+    ![alt text](image-1.png)
 
 ### Terima kasih
 

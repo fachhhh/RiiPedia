@@ -5,24 +5,39 @@
 <head>
     <title>RiiPedia</title>
     <style>
-        /* Mengatur tata letak grid dengan 3 kolom */
+        body {
+            font-family: Arial, sans-serif;
+        }
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr); /* Tiga kolom yang sama lebar */
-            gap: 20px; /* Jarak antar produk */
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
             margin-top: 20px;
         }
         .product-grid .book-info {
-            border: 1px solid #ccc; /* Memberikan border pada setiap produk */
-            padding: 15px; /* Ruang di dalam setiap produk */
-            text-align: center; /* Mengatur teks agar rata tengah */
+            border: 1px solid #ccc;
+            padding: 15px;
+            text-align: center;
+            background-color: #f9f9f9;
         }
-        .product-grid .book-info h2 {
-            font-size: 1.5em;
-            margin-bottom: 10px;
+        h1, h4 {
+            text-align: center;
         }
-        .product-grid .book-info h3 {
-            color: #f00; /* Ubah warna harga menjadi merah */
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .button-container a {
+            text-decoration: none;
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            margin: 10px;
+        }
+        .button-container a:hover {
+            background-color: #45a049;
         }
     </style>
 </head>
@@ -34,9 +49,10 @@
     <h4>User: {{ name }}</h4>
     <h4>{{ class }}</h4>
     <h4>Sesi terakhir login: {{last_login}}</h4>
-    
+    <hr>
+
     {% if not product_entries %}
-    <p>Belum ada produk yang ditambahkan ke e-commerce ini</p>
+    <p><em>Belum ada produk yang ditambahkan ke e-commerce ini</em></p>
     {% else %}
         <!-- Grid untuk menampilkan produk -->
         <div class="product-grid">
@@ -44,10 +60,10 @@
             <!-- Informasi Produk -->
             <div class="book-info">
                 <!-- Judul Produk -->
-                <h2><u>{{ product_entry.name }}</u></h2>
+                <h3><u>{{ product_entry.name }}</u></h3>
                 
                 <!-- Harga Produk -->
-                <h3>Price: <strong>Rp{{ product_entry.price }},00</strong></h3>
+                <p><strong>Price: Rp{{ product_entry.price }},00</strong></p>
 
                 <!-- Jumlah Terjual -->
                 <p><em>Stock:</em> {{ product_entry.quantity }}</p>
@@ -58,13 +74,13 @@
             {% endfor %}
         </div>
     {% endif %}
-    <a href="{% url 'main:create_product_entry' %}">
-        <button>Add New Product</button>
-    </a>
 
-    <a href="{% url 'main:logout' %}">
-        <button>Logout</button>
-    </a>
+    <!-- Tombol navigasi -->
+    <div class="button-container">
+        <!-- Menggunakan tag <a> untuk navigasi -->
+        <a href="{% url 'main:create_product_entry' %}">Add New Product</a>
+        <a href="{% url 'main:logout' %}">Logout</a>
+    </div>
 </body>
 </html>
 {% endblock content %}

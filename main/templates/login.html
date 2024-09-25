@@ -2,6 +2,50 @@
 
 {% block meta %}
 <title>Login!</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    .login {
+        width: 300px;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        background-color: #f9f9f9;
+    }
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+    input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+    a {
+        display: block;
+        text-align: center;
+        margin-top: 10px;
+        color: #0066cc;
+        text-decoration: none;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+    ul {
+        color: red;
+        list-style-type: none;
+        padding: 0;
+    }
+</style>
 {% endblock meta %}
 
 {% block content %}
@@ -27,7 +71,7 @@
         <li>{{ messages }}</li>
         {% endfor %}
     </ul>
-    {% endif %} Dont have an account yet?
+    {% endif %}
     <a href="{% url 'main:register' %}">Register Now</a>
 </div>
 {% endblock content %}
