@@ -12,7 +12,7 @@ from django.urls import reverse
 
 @login_required(login_url='/login')
 def show_main(request):
-    product_entries = Ecommerce.objects.all()
+    product_entries = Ecommerce.objects.filter(user=request.user)
     context = {
         'ecommerce' : 'RiiPedia',
         'name' : request.user.username,
@@ -38,13 +38,7 @@ def create_product_entry(request):
 
 def show_xml(request):
     data = Ecommerce.objects.all()
-
-def show_xml(request):
-    data = Ecommerce.objects.all()
     return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
-
-def show_json(request):
-    data = Ecommerce.objects.all()
 
 def show_json(request):
     data = Ecommerce.objects.all()

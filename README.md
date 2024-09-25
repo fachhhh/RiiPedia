@@ -213,27 +213,51 @@ Jawab:\
     def my_view(request):
     return redirect('/some-url/')
 
-### 2. Jelaskan cara kerja penghubungan model MoodEntry dengan User!
+### 2. Jelaskan cara kerja penghubungan model Product dengan User!
 Jawab:\
-    Hubungan model MoodEntry dan User adalah pada class MoodEntry, nama user bukan lagi fixed dari program yang sudah ditentukan namun menggunakan nama user yang login. Pastinya sebelum login, user akan diarahkan untuk register dengan membuat username dan password. Username tersebut akan digunakan untuk menampilkan nama di `main.html`.\
+    Hubungan model Product dan User adalah pada class Ecommerce, nama user bukan lagi fixed dari program yang sudah ditentukan namun menggunakan nama user yang login. Pastinya sebelum login, user akan diarahkan untuk register dengan membuat username dan password. Username tersebut akan digunakan untuk menampilkan nama di `main.html`.\
     \
-    Cara kerja penghubungan model MoodEntry dengan User adalah yang pertama harus mengimpor model dengan kode berikut pada file `models.py`.
+    Cara kerja penghubungan model Ecommerce dengan User adalah yang pertama harus mengimpor model dengan kode berikut pada file `models.py`.
 
     from django.contrib.auth.models import User
 
-Kemudian pada class `MoodEntry` buat variable user yang mengguhungkan satu MoodEntry dengan satu user memalui sebuah relationship. Dalam bahasa simpelnya, Seorang user hanya mempunyai data dia seorang dan tidak tercampur dengan data user lain. Mengapa bisa begitu? di variable user di dalam class `MoodEntry` saya menggunakan **Foreign Key** yang mana in default build Django merupakan **one to one field**. Dengan adanya **Foreign Key**, program bisa merubah yang tadinya `one to one relationship` to `many to one relationship`.\
+Kemudian pada class `Ecommerce` buat variable user yang mengguhungkan satu Product dengan satu user memalui sebuah relationship. Dalam bahasa simpelnya, Seorang user hanya mempunyai data dia seorang dan tidak tercampur dengan data user lain. Mengapa bisa begitu? di variable user di dalam class `Ecommerce` saya menggunakan **Foreign Key** yang mana in default build Django merupakan **one to one field**. Dengan adanya **Foreign Key**, program bisa merubah yang tadinya `one to one relationship` to `many to one relationship`.\
 \
-    Fungsi dari foreign key misal dalam mental health tracker, ketika ada user 1 dan user 2 yang ingin register, login, dan add new mood entry. Masing masing user tersebut akan bisa melihat input form yang masing - masing user input dan data tidak akan tercampur. Namun admin akan bisa melihat data yang user 1 dan user 2 input. Intinya *bisa menampung banyak user yang berbeda beda dengan 1 database*.\
+    Fungsi dari foreign key misal dalam mental health tracker, ketika ada user 1 dan user 2 yang ingin register, login, dan add new product. Masing masing user tersebut akan bisa melihat input form yang masing - masing user input dan data tidak akan tercampur. Namun admin akan bisa melihat data yang user 1 dan user 2 input. Intinya *bisa menampung banyak user yang berbeda beda dengan 1 database*.\
     \
-    Saya mengubah fungsi `create_mood_entry(request)` dengan yang tadinya `form.save()` menjadi
+    Saya mengubah fungsi `create_product_entry(request)` dengan yang tadinya `form.save()` menjadi
 
-    mood_entry = form.save(commit=False)
-    mood_entry.user = request.user
-    mood_entry.save() 
+    product_entry = form.save(commit=False)
+    product_entry.user = request.user
+    product_entry.save() 
 
-Karena setelah menggunakan **ForeignKey** yang bersifat many to one relationship, kode tersebut bertujuan untuk menandakan suatu objek yang sedang diakses atau form yang sedang diisi user adalah milik user yang sedang login dan tidak milik bersama. Kemudian mengganti kode `mood_entries = MoodEntry.objects.all()` menjadi `mood_entries = MoodEntry.objects.filter(user=request.user)` yang berfungsi sebagai mengambil dan menampilkan isi form yang sudah di isi oleh masing - masing pengguna dan akan menampilkan nama perequest di `main.html` yang sudah saya jelaskan di awal.
+Karena setelah menggunakan **ForeignKey** yang bersifat many to one relationship, kode tersebut bertujuan untuk menandakan suatu objek yang sedang diakses atau form yang sedang diisi user adalah milik user yang sedang login dan tidak milik bersama. Kemudian mengganti kode `product_entries = Ecommerce.objects.all()` menjadi `product_entries = Ecommerce.objects.filter(user=request.user)` yang berfungsi sebagai mengambil dan menampilkan isi form yang sudah di isi oleh masing - masing pengguna dan akan menampilkan nama perequest di `main.html` yang sudah saya jelaskan di awal.
 
 ### 3.  Apa perbedaan antara authentication dan authorization, apakah yang dilakukan saat pengguna login? Jelaskan bagaimana Django mengimplementasikan kedua konsep tersebut.
 
 Jawab:\
-    Perbedaan **authentication** dan **authorization** adalah
+    Perbedaan **authentication** dan **authorization**\
+    \
+    **Authentication**:\
+    Proses memverifikasi identitas client. Contohnya adalah ketika client menginput username dan password saat login, apakah username dan password benar dan valid dengan data client saat register yang sudah disimpan di database.\
+    \
+    **Authorization**:\
+    Proses dimana apakah client yang sudah terautentikasi memiliki izin untuk mengakses sumber daya atau melakukan aksi. Contohnya setelah client berhasil melewati autentikasi pada saat login, otorisasi akan menentukan apakah client bisa mengakses halaman admin atau halaman user biasa.\
+    \
+    Saat pengguna login, pastinya kita akan dihadapkan ke login landing page. Jika belum mempunyai akun bisa melakukan register terlebih dahulu untuk membuat username dan password. Di halaman login, saat pengguna melakukan login menggunakan username dan password yang sudah dibuat sebelumnya, Django akan memeriksa kesamaan input username dan password yang user tersebut input dengan database. Jika benar dan valid maka Django akan membuat session untuk pengguna tsb dan detail pengguna akan disimpan didalam session.\
+    \
+    Setelah melewati autentikasi, masuk ke langkah otorisasi yang mana Django akan memeriksa izin dari pengguna untuk mengakses halaman contohnya.\
+    \
+    Untuk implementasi **Authentication** dan **Authorization** cukup mudah. Autentikasi digunakan untuk login dan logout jadi kita perlu membuat fungsi login dan logout di dalam file `views.py`. Tambahkan `@login_required` di atas semua fungsi yang ada di `views.py` dan set url loginnya untuk mengarahkan user ke login landing page pertama kali. Untuk otorisasi digunakan untuk *permissions* dan *group* yang mana bisa menggunakan dekorator `@permission_required` untuk membatasi akses client ke view.
+
+### 4. Bagaimana Django mengingat pengguna yang telah login? Jelaskan kegunaan lain dari cookies dan apakah semua cookies aman digunakan?
+Jawab:\
+    Ada yang namanay *cookies*. *Cookies* secara singkat adalah kumpulan informasi rekam jejak dan aktivitas ketika membuka dan menelusuri sebuah website. Sempat disinggung di jawaban sebelumnya bahwa autentikasi akan membuat sebuah session yang mana session disimpan di dalam cookies saat user login. Session mempunyai key yang bernama session key. Session key berisi string acak dan menyimpan key tsb di database. Kegunaan cookies adalah menyimpan preferensi pengguna, login otomatis, menyimpan item di keranjang belanja untuk situs ecommerce dan pelacak aktivitas pengguna.\
+    \
+    Tidak semua cookies aman karena batasan aman cookies tergantung konfigurasi dan pemanfaatan. Ada beberapa potensi risiko seperti cookies yang tidak terenkripsi. Cara penanganannya dengan menambahkan CSRF token dan session. Selanjutnya ada XSS yang mana bisa menyisipkan skrip bahaya yang dapat membaca cookies.
+
+### 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+Jawab:\
+    Yang pertama saya lakukan adalah mengimport library seperti `UserCreationForm` dan `messages` untuk membuat fungsi register lalu membuat `register.html` dan mengatur path url di `urls.py`. Selanjutnya buat fungsi login, logout dan mengatur `login required` pada `views.py`. Buat `login.html` untuk tempat user/client login. Tombol Logout berada di `main.html`.\
+    \
+    Yang 
