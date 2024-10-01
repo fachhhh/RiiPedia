@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+{% include 'navbar.html' %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,7 +28,7 @@
             text-align: center;
             margin-top: 20px;
         }
-        .button-container a {
+        .button-container a, .book-info a {
             text-decoration: none;
             display: inline-block;
             padding: 10px 20px;
@@ -36,7 +37,7 @@
             border-radius: 5px;
             margin: 10px;
         }
-        .button-container a:hover {
+        .button-container a:hover, .book-info a:hover {
             background-color: #45a049;
         }
     </style>
@@ -70,6 +71,15 @@
 
                 <!-- Deskripsi Produk -->
                 <p><strong>Description:</strong> {{ product_entry.description }}</p>
+
+                <!-- Tombol Edit -->
+                <a href="{% url 'main:edit_product' product_entry.pk %}">
+                    Edit
+                </a>
+
+                <a href="{% url 'main:delete_product' product_entry.pk %}">
+                    Delete
+                </a>
             </div>
             {% endfor %}
         </div>
