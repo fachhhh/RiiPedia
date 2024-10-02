@@ -375,3 +375,37 @@ Jawab:\
 
 ### 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!
 Jawab:\
+Pada tugas 5 kali ini, kita diminta untuk membuat fungsi edit dan menghapus produk. Maka dari itu saya membuat function di `views.py`
+
+def edit_product(request, id):
+    product = Ecommerce.objects.get(pk = id)
+    form = EcommerceEntryForm(request.POST or None, instance=product)
+    
+    if form.is_valid() and request.method == "POST":
+        form.save()
+        return HttpResponseRedirect(reverse('main:show_main'))
+    
+    context = {'form':form}
+    return render(request, "edit_product.html", context)
+
+Lalu set url di `urls.py` pada main. Untuk Edit Product, kita juga perlu membuat html khusus untuk mengedit produk dengan UI dan fungsi kurang lebih sama dengan `create_product_enty.html`. Untuk function delete product pada `views.py` saya membuatnya seperti ini
+
+def delete_product(request, id):
+    product = Ecommerce.objects.get(pk = id)
+    product.delete()
+    return HttpResponseRedirect(reverse('main:show_main'))
+
+Kemudian set url di `urls.py` pada main. Delete product hanya perlu membuat tombol delete sehingga tidak diperlukan untuk membuat html khusus seperti edit product. Kesamaan dari fungsi tersebut adalah kedua fungsi tersebut harus mengambil primary key dari masing - masing produk yang diambil dari database.\
+\
+Selanjutnya saya sudah membuat halaman produk secara responsif dan di design dengan sedikit perubahan pada tampilannya.\
+Jika tidak ada produk yang ditambahkan akan menampilkan gambar dan tulisan "Belum ada produk yang ditambahkan ke e-commerce ini."\
+![alt text](image-5.png)
+Jika ada produk yang ditambahkan, tampilannya akan seperti pada gambar berikut.\
+![alt text](image-7.png)
+\
+Disetiap produk sudah tertera tombol edit yang langsung mengarahkan user ke edit form dan tombol delete untuk menghapus produk secara instan.\
+\
+Saya juga sudah membuat navbar yang responsif untuk kedua platform, mobile dan desktop yang bisa dilihat identasinya di navbar.html\
+![alt text](image-6.png)
+
+## Terima Kasih

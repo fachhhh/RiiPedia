@@ -104,4 +104,3 @@ def delete_product(request, id):
     product = Ecommerce.objects.get(pk = id)
     product.delete()
     return HttpResponseRedirect(reverse('main:show_main'))
-
