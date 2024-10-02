@@ -1,49 +1,47 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Add New Product</title>
+{% endblock meta %}
+
 {% block content %}
-<h1>Add New Product to RiiPedia</h1>
-<hr>
+{% include 'navbar.html' %}
 
-<style>
-    body {
-        font-family: Arial, sans-serif;
-    }
-    h1 {
-        text-align: center;
-        color: #333;
-    }
-    form {
-        width: 400px;
-        margin: auto;
-        padding: 20px;
-        border: 1px solid #ccc;
-        border-radius: 10px;
-        background-color: #f9f9f9;
-    }
-    input[type="submit"] {
-        width: 100%;
-        padding: 10px;
-        background-color: #4CAF50;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-    input[type="submit"]:hover {
-        background-color: #45a049;
-    }
-</style>
+<div class="flex flex-col min-h-screen bg-gray-100" style="background-image: url('https://images.unsplash.com/photo-1525122647714-4c39e72a6873?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); background-size: cover; background-position: center;">
+  <div class="container mx-auto px-4 py-8 mt-16 max-w-xl">
+    <h1 class="text-3xl font-bold text-center mb-8 text-white">Add New Product to RiiPedia</h1>
+  
+    <div class="bg-white shadow-md rounded-lg p-6 form-style">
+      <form method="POST" class="space-y-6">
+        {% csrf_token %}
+        {% for field in form %}
+          <div class="flex flex-col">
+            <label for="{{ field.id_for_label }}" class="mb-2 font-semibold text-gray-700">
+              {{ field.label }}
+            </label>
+            <div class="w-full">
+              <div class="border border-gray-300 rounded-md p-2">
+                {{ field }}
+              </div>
+            </div>
+            {% if field.help_text %}
+              <p class="mt-1 text-sm text-gray-500">{{ field.help_text }}</p>
+            {% endif %}
+            {% for error in field.errors %}
+              <p class="mt-1 text-sm text-red-600">{{ error }}</p>
+            {% endfor %}
+          </div>
+        {% endfor %}
+        <div class="flex justify-center mt-6">
+          <button type="submit" class="bg-[#FF7F7F] text-white font-semibold px-6 py-3 rounded-lg hover:bg-[#FF4C4C] transition duration-300 ease-in-out w-full">
+            Add Product
+          </button>
+        </div>        
+      </form>
+    </div>
+  </div>
+</div>
 
-<form method="POST">
-  {% csrf_token %}
-  <table>
-    {{ form.as_table }}
-    <tr>
-      <td></td>
-      <td>
-        <input type="submit" value="Add Product" />
-      </td>
-    </tr>
-  </table>
-</form>
 
 {% endblock %}
