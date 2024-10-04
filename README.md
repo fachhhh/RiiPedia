@@ -25,27 +25,27 @@
 ### 1. Jika terdapat beberapa CSS selector untuk suatu elemen HTML, jelaskan urutan prioritas pengambilan CSS selector tersebut!
 Jawab:\
 CSS mempunyai urutan prioritas dalam menentukan gaya mana yang ingin diterapkan pada elemen ketika ada beberapa aturan CSS. Urutan yang dari yang paling berbobot rendah ke bobot yang paling tinggi.\
-\
+
 1. **!important Declaration**:\
 Ini adalah aturan yang paling diutamakan dan mengalahkan semua spesifisitasnya.\
-\
+
 2. **Inline Style**:\
 Aturan ini ditetapkan langsung pada elemen HTML dengan menggunakan atribut `<style>` dan memiliki spesifisitas yang lebih tinggi daripada semua selector lainnya meskipun **!important** masih menjadi tahta tertinggi CSS selector.\
-\
+
 3. **ID Selector**:\
 Aturan selector ini mencakup elemen berdasarkan ID maka dari itu ID selector memiliki spesifitas yang lebih tinggi dari class dan atribute selector. Contohnya `#id-name { color: purple; }`\
-\
+
 4. **Pseudo-class Selector**:\
 Pada selector ini mencakup keadaan khusus dari elemen. Misalnya, `:hover` atau `:first-child` memiliki spesifisitas yang setara dengan class dan attribute selectors.\
-\
+
 5. **Attribute Selector**:\ Selector ini mencakup elemen berdasarkan atributnya. Misalnya, `[type="text"] { color: orange; }` memiliki spesifisitas yang setara dengan class selector.\
-\
+
 6. **Class Selector**:\
 Selector ini mencakup elemen berdasarkan kelas. Misalnya, `.class-name { color: green; }` memiliki spesifisitas yang lebih tinggi dibandingkan type selector.\
-\
+
 7. **Type Selector**:\
 Selector ini mencakup elemen HTML berdasarkan jenisnya. Misalnya, `p { color: red; } `memiliki spesifisitas yang lebih tinggi dibandingkan universal selector.\
-\
+
 8. **Universal Selector**:\ Selector ini memiliki spesifisitas terendah. Misalnya, `* { color: blue; }` akan diterapkan ke semua elemen, tetapi tidak akan mengalahkan aturan yang lebih spesifik.
 
 ### 2. Mengapa responsive design menjadi konsep yang penting dalam pengembangan aplikasi web? Berikan contoh aplikasi yang sudah dan belum menerapkan responsive design!
