@@ -146,7 +146,7 @@ Jika ada produk yang ditambahkan, tampilannya akan seperti pada gambar berikut.\
 \
 Disetiap produk sudah tertera tombol edit yang langsung mengarahkan user ke edit form dan tombol delete untuk menghapus produk secara instan.\
 \
-Saya juga sudah membuat navbar yang responsif untuk kedua platform, mobile dan desktop yang bisa dilihat identasinya di navbar.html\
+Saya juga sudah membuat navbar yang responsif untuk kedua platform, mobile dan desktop yang bisa dilihat identasinya di [navbar.html](https://github.com/fachhhh/RiiPedia/blob/main/templates/navbar.html)\
 ![alt text](image-6.png)
 
 ## Terima Kasih
