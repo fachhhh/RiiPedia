@@ -8,9 +8,9 @@
 [RiiPedia](http://hadyan-fachri-riipedia.pbp.cs.ui.ac.id/)
 
 ## Wiki for README.md Archieve
-[Tugas Individu 2](https://github.com/fachhhh/RiiPedia/wiki/Archieve-Tugas-Individu-2-PBP)
-[Tugas Individu 3](https://github.com/fachhhh/RiiPedia/wiki/Archieve-Tugas-Individu-3-PBP)
-[Tugas Individu 4](https://github.com/fachhhh/RiiPedia/wiki/Archieve-Tugas-Individu-4-PBP)
+- [Tugas Individu 2](https://github.com/fachhhh/RiiPedia/wiki/Archieve-Tugas-Individu-2-PBP)
+- [Tugas Individu 3](https://github.com/fachhhh/RiiPedia/wiki/Archieve-Tugas-Individu-3-PBP)
+- [Tugas Individu 4](https://github.com/fachhhh/RiiPedia/wiki/Archieve-Tugas-Individu-4-PBP)
 
 ## Checkpoint Tugas Individu 5
 ✔ Implementasikan fungsi untuk menghapus dan mengedit product.\
