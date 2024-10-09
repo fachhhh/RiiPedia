@@ -2,23 +2,24 @@ import datetime
 from django.shortcuts import render, redirect
 from main.forms import EcommerceEntryForm
 from main.models import Ecommerce
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.core import serializers
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
+from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.http import require_POST
+from django.utils.html import strip_tags
 
 @login_required(login_url='/login')
 def show_main(request):
-    product_entries = Ecommerce.objects.filter(user=request.user)
     context = {
         'ecommerce' : 'RiiPedia',
         'name' : request.user.username,
         'npm' : '2306245030',
         'class' : 'PBP A',
-        'product_entries' : product_entries,
         'last_login' : request.COOKIES['last_login'],
     }
 
@@ -37,11 +38,11 @@ def create_product_entry(request):
     return render(request, "create_product_entry.html", context)
 
 def show_xml(request):
-    data = Ecommerce.objects.all()
+    data = Ecommerce.objects.filter(user=request.user)
     return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
 
 def show_json(request):
-    data = Ecommerce.objects.all()
+    data = Ecommerce.objects.filter(user=request.user)
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
 def show_xml_by_id(request, id):
@@ -77,6 +78,8 @@ def login_user(request):
             response = HttpResponseRedirect(reverse("main:show_main"))
             response.set_cookie('last_login', str(datetime.datetime.now()))
             return response
+        else:
+            messages.error("Invalid username or password. Please try again.")
         
     else:
         form = AuthenticationForm(request)
@@ -104,3 +107,57 @@ def delete_product(request, id):
     product = Ecommerce.objects.get(pk = id)
     product.delete()
     return HttpResponseRedirect(reverse('main:show_main'))
+
+@csrf_exempt
+@require_POST
+def add_product_entry_ajax(request):
+    try:
+        name = request.POST.get("name")
+        price = request.POST.get("price")
+        quantity = request.POST.get("quantity")
+        description = request.POST.get("description")
+        
+        # Validasi input
+        if not all([name, price, quantity, description]):
+            return JsonResponse({
+                "status": False,
+                "message": "Semua field harus diisi!"
+            }, status=400)
+        
+        # Konversi price dan quantity ke integer
+        try:
+            price = int(price)
+            quantity = int(quantity)
+        except ValueError:
+            return JsonResponse({
+                "status": False,
+                "message": "Price dan quantity harus berupa angka!"
+            }, status=400)
+
+        # Buat produk baru
+        new_product = Ecommerce.objects.create(
+            user=request.user,
+            name=name,
+            price=price,
+            quantity=quantity,
+            description=description
+        )
+
+        # Serialize produk untuk response
+        return JsonResponse({
+            "status": True,
+            "message": "Product berhasil ditambahkan!",
+            "product": {
+                "id": str(new_product.id),
+                "name": new_product.name,
+                "price": new_product.price,
+                "quantity": new_product.quantity,
+                "description": new_product.description
+            }
+        }, status=201)
+
+    except Exception as e:
+        return JsonResponse({
+            "status": False,
+            "message": str(e)
+        }, status=500)

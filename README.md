@@ -12,141 +12,163 @@
 - [Tugas Individu 3](https://github.com/fachhhh/RiiPedia/wiki/Archieve-Tugas-Individu-3-PBP)
 - [Tugas Individu 4](https://github.com/fachhhh/RiiPedia/wiki/Archieve-Tugas-Individu-4-PBP)
 
-## Checkpoint Tugas Individu 5
-✔ Implementasikan fungsi untuk menghapus dan mengedit product.\
-✔ Kustomisasi desain pada template HTML yang telah dibuat pada tugas-tugas sebelumnya menggunakan CSS atau CSS framework (seperti Bootstrap, Tailwind, Bulma) dengan ketentuan sebagai berikut:\
-    ✔ Kustomisasi halaman login, register, dan tambah product semenarik mungkin.\
-    ✔ Kustomisasi halaman daftar product menjadi lebih menarik dan responsive. Kemudian, perhatikan kondisi berikut:\
-        ✔ Jika pada aplikasi belum ada product yang tersimpan, halaman daftar product akan menampilkan gambar dan pesan bahwa belum ada product yang terdaftar.\
-        ✔ Jika sudah ada product yang tersimpan, halaman daftar product akan menampilkan detail setiap product dengan menggunakan card (tidak boleh sama persis dengan desain pada Tutorial!).\
-    ✔ Untuk setiap card product, buatlah dua buah button untuk mengedit dan menghapus product pada card tersebut!\
-    ✔ Buatlah navigation bar (navbar) untuk fitur-fitur pada aplikasi yang responsive terhadap perbedaan ukuran device, khususnya mobile dan desktop.
+## Checkpoint Tugas Individu 6
+✔ Mengubah tugas 5 yang telah dibuat sebelumnya menjadi menggunakan AJAX.
+- AJAX GET
+    - Ubahlah kode cards data mood agar dapat mendukung AJAX GET.
+    - Lakukan pengambilan data mood menggunakan AJAX GET. Pastikan bahwa data yang diambil hanyalah data milik pengguna yang logged-in.
+- AJAX POST
+    - Buatlah sebuah tombol yang membuka sebuah modal dengan form untuk menambahkan mood.
+    - Buatlah fungsi view baru untuk menambahkan mood baru ke dalam basis data.
+    - Buatlah path /create-ajax/ yang mengarah ke fungsi view yang baru kamu buat.
+    - Hubungkan form yang telah kamu buat di dalam modal kamu ke path /create-ajax/.
+    - Lakukan refresh pada halaman utama secara asinkronus untuk menampilkan daftar mood terbaru tanpa reload halaman utama secara keseluruhan.
+✔ Menjawab beberapa pertanyaan berikut pada README.md pada root folder (silakan modifikasi README.md yang telah kamu buat sebelumnya; tambahkan subjudul untuk setiap tugas).
 
-### 1. Jika terdapat beberapa CSS selector untuk suatu elemen HTML, jelaskan urutan prioritas pengambilan CSS selector tersebut!
+### 1. Jelaskan manfaat dari penggunaan JavaScript dalam pengembangan aplikasi web!
 Jawab:\
-CSS mempunyai urutan prioritas dalam menentukan gaya mana yang ingin diterapkan pada elemen ketika ada beberapa aturan CSS. Urutan yang dari yang paling berbobot rendah ke bobot yang paling tinggi.\
+JavaScript mempunyai beberapa manfaat dalam pengembangan aplikasi web.\
 
-1. **!important Declaration**:\
-Ini adalah aturan yang paling diutamakan dan mengalahkan semua spesifisitasnya.\
+1. **Interaktif dan Responsif**\
+JavaScript memungkinkan developer untuk membuat elemen antarmuka user (UI) yang interaktif dan pastinya responsif. Yang mana bermanfaat untuk para user mendapatkan pengalaman yang terbaik saat mengunjungi website tsb.
 
-2. **Inline Style**:\
-Aturan ini ditetapkan langsung pada elemen HTML dengan menggunakan atribut `<style>` dan memiliki spesifisitas yang lebih tinggi daripada semua selector lainnya meskipun **!important** masih menjadi tahta tertinggi CSS selector.\
+2. **Client-Side Processing**\
+Ketika JavaScript berjalan di sebuah browser, pengolahan data bisa dilakukan tanpa harus mengirim permintaan ke server yang mana dapat mengurangi beban server dan meningkatkan kecepatan aplikasi.\
 
-3. **ID Selector**:\
-Aturan selector ini mencakup elemen berdasarkan ID maka dari itu ID selector memiliki spesifitas yang lebih tinggi dari class dan atribute selector. Contohnya `#id-name { color: purple; }`\
+3. **Integrasi dengan HTML dan CSS**\
+Sangat udah untuk mengintegrasikan JavaScript dengan HTML dan CSS yang mana memudahkan developer untuk memanipulasi elemen DOM secara langsung dan mengubah tampilan secara dinamis.\
 
-4. **Pseudo-class Selector**:\
-Pada selector ini mencakup keadaan khusus dari elemen. Misalnya, `:hover` atau `:first-child` memiliki spesifisitas yang setara dengan class dan attribute selectors.\
+4. **Framework dan Library yang kuat**\
+Terdapat banyak framework dan library JavaScript yang dapat membantu developer mengembangkan aplikasi seperti React, Angular, Vue.js, dan jQuery. Framework tsb menyediakan struktur dan komponen yang reusable untuk membangun aplikasi web yang kompleks.\
 
-5. **Attribute Selector**:\ Selector ini mencakup elemen berdasarkan atributnya. Misalnya, `[type="text"] { color: orange; }` memiliki spesifisitas yang setara dengan class selector.\
+5. **Kompatibilitas Cross-Browser**\
+JavaScript didukung oleh hampir semua browser modern, sehingga aplikasi web berbasis JavaScript dapat berjalan di berbagai platform tanpa banyak perubahan.\
 
-6. **Class Selector**:\
-Selector ini mencakup elemen berdasarkan kelas. Misalnya, `.class-name { color: green; }` memiliki spesifisitas yang lebih tinggi dibandingkan type selector.\
+6. **Pengembangan Aplikasi Front-End dan Back-End**\
+Node.js dapat digunakan untuk back-end dari sebuah JavaScript dan memungkinkan developer untuk menggunakan satu bahasa dalam dua fungsi yaitu back-end dan front-end.
 
-7. **Type Selector**:\
-Selector ini mencakup elemen HTML berdasarkan jenisnya. Misalnya, `p { color: red; } `memiliki spesifisitas yang lebih tinggi dibandingkan universal selector.\
+7. **Real-time Interaction**\
+Javascript sangat mendukung interaksi real-time dengan server menggunakan teknologi seperti AJAX. AJAX dapat membuat aplikasi seperti chat, notifikasi, atau update secara real-time dan tanpa reload halaman.\
 
-8. **Universal Selector**:\ Selector ini memiliki spesifisitas terendah. Misalnya, `* { color: blue; }` akan diterapkan ke semua elemen, tetapi tidak akan mengalahkan aturan yang lebih spesifik.
+8. **Dukungan Komunitas dan Ekosistem yang Besar**\
+JavaScript mempunyai komunitas yang besar dan aktif. Yang mana sangat bermanfaat untuk developer baru karena mempunyai tempat belajar yang sangat luas.
 
-### 2. Mengapa responsive design menjadi konsep yang penting dalam pengembangan aplikasi web? Berikan contoh aplikasi yang sudah dan belum menerapkan responsive design!
+### 2.  Jelaskan fungsi dari penggunaan await ketika kita menggunakan fetch()! Apa yang akan terjadi jika kita tidak menggunakan await?
 Jawab:\
-Karena akan menimbulkan beberapa efek yang pertama **User Experience**. Dengan website yang responsif, user dapat merasakan penggunaan yang baik. Sebuah keharusan programmer membuat website tersebut responsif ke segala platform mulai dari desktop, handphone maupun tablet.\
-\
-Kedua adalah **Aksesibilitas**. Dalam mengakses web dari berbagai perangkat, website dan design yang responsif dapat memudahkan user untuk mengakses informasi yang sama.\
-\
-Ketiga adalah **Search Engine Optimization** yang bisa disingkat SEO. Contoh mudah dari SEO adalah Google. Google adalah Search Engine yang digunakan oleh semua orang karena kemudahannya dalam mengases berbagai konten dan informasi.\
-\
-Keempat adalah **Biaya yang hemat**. Dengan menggunakan website yang responsif, dapat menghemat biasa karena tidak perlu membuat situs secara terpisah.
+Await dalam Javascript digunakan untuk menangani operasi asynchronous. Contohnya `fetch()`. Ada dua fungsi await dalam `fetch()`:\
+1. **Menunggu Hasil `fetch()`**\
+`fetch()` adalah operasi asynchronous yang mana akan mengembalikan sebuah promise. Ketika `fetch()` bekerja, await akan menunggu pekerjaan `fetch()` selesai sebelum lanjut ke baris selanjutnya.
 
-### 3. Jelaskan perbedaan antara margin, border, dan padding, serta cara untuk mengimplementasikan ketiga hal tersebut!
+```
+const response = await fetch('https://api.example.com/data');
+const data = await response.json();
+console.log(data);
+```
+
+2. **Menghindari Callback Hell**\
+Await membuat penanganan kode asynchronous menjadi lebih mudah ditulis dan dibaca. Hanya dengan `.then()` dan `.catch()` bisa menghemat banyak callback.\
+\
+Jika tidak menggunakan await dalam operasi `fetch()` maka tidak akan menunggu response. Misal operasi `fetch()` dilakukan membutuhkan waktu yang lama. Jika tidak ada await, program akan mengeksekusi tanpa menunggu operasi `fetch()` selesai. Kemudian jika tidak ada await, kita harus menggunakan `.then()` yang mana harus menangani promise dari await jika ingin mendapatkan hasil dari operasi `fetch()`.
+
+```
+fetch('https://api.example.com/data')
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error('Error:', error));
+```
+
+### 3. Mengapa kita perlu menggunakan decorator csrf_exempt pada view yang akan digunakan untuk AJAX POST?
 Jawab:\
-**Margin** adalah ruang kosong di luar batas elemen. Ini digunakan untuk memberikan jarak antara elemen dengan elemen lain di sekitarnya.\
-\
-Cara mengimplementasikannya dengan cara ditetapkan secara individual untuk setiap sisi elemen atas, kanan, bawah, kiri atau secara keseluruhan. Kemudian nilai margin bisa dalam satuan pixel, persen, em, dll.\
-```
-.box {
-    margin: 20px; /* Jarak 20px di semua sisi */
-}
+Decorator csrf_exempt membuat Django tidak perlu mengecek keberadaan csrf_token pada POST request yang dikirimkan ke fungsi ini. Secara default, Django menerapkan perlindungan CSRF untuk semua permintaan POST, yang bertujuan untuk melindungi aplikasi web dari serangan CSRF. Namun, dalam kasus tertentu, terutama saat menangani AJAX requests, kita mungkin perlu mengecualikan view dari perlindungan ini menggunakan `@csrf_exempt`.
 
-.box-custom {
-    margin-top: 10px;    /* Jarak 10px di atas */
-    margin-right: 15px;  /* Jarak 15px di kanan */
-    margin-bottom: 20px; /* Jarak 20px di bawah */
-    margin-left: 5px;    /* Jarak 5px di kiri */
-}
-```
-
-**Border** adalah garis yang mengelilingi elemen. Ini dapat digunakan untuk mempertegas batas elemen dan menambah visualisasi.\
-\
-Cara mengimplementasikannya dapat dengan cara diatus dengan lebar, gaya, dan warna. Kemudian dapat mengatur border secara keseluruhan atau individual untuk setiap sisi.\
-```
-.box {
-    border: 2px solid black; /* Border 2px, solid, berwarna hitam */
-}
-
-.box-custom {
-    border-top: 1px dashed red;   /* Border atas 1px, dashed, merah */
-    border-right: 2px double blue; /* Border kanan 2px, double, biru */
-    border-bottom: 3px solid green; /* Border bawah 3px, solid, hijau */
-    border-left: 4px dotted yellow; /* Border kiri 4px, dotted, kuning */
-}
-```
-
-**Padding** adalah ruang di dalam elemen, antara konten elemen dan batas (border) elemen tersebut. Ini digunakan untuk memberikan jarak antara konten dan border.\
-\
-Cara mengimplementasikannya dengan cara ditetapkan secara individual untuk setiap sisi elemen atau secara keseluruhan. Kemudian nilai padding mirip seperti margin, pixel, persen, em, dll.
-```
-.box {
-    padding: 15px; /* Jarak 15px di dalam semua sisi */
-}
-
-.box-custom {
-    padding-top: 5px;    /* Jarak 5px di atas konten */
-    padding-right: 10px; /* Jarak 10px di kanan konten */
-    padding-bottom: 15px; /* Jarak 15px di bawah konten */
-    padding-left: 20px;   /* Jarak 20px di kiri konten */
-}
-```
-
-### 4. Jelaskan konsep flex box dan grid layout beserta kegunaannya!
+### 4. Pada tutorial PBP minggu ini, pembersihan data input pengguna dilakukan di belakang (backend) juga. Mengapa hal tersebut tidak dilakukan di frontend saja?
 Jawab:\
-**Flexbox** adalah model tata letak yang  dirancang untuk mengatur elemen dalam satu dimensi, baik secara horizontal maupun vertikal. Ini memungkinkan untuk elemen di dalam wadah beradaptasi dengan ukuran dan posisi berdasarkan ruang yang tersedia. Flexbox mempunyai karakteristik seperti dapat disusun dalam baris atau kolom, ukuran yanng responsif dan alignment yang fleksibel. Flexbox mempunyai kegunaan untuk mengatur navbar, mengatur form, elemen UI dan membuat gambar yang responsif.\
-\
-**Grid Layout** adalah model tata letak yang memungkinkan pengembang untuk mengatur elemen dalam baris dan kolom. Grid Layout dapat membuat struktur yang kompleks dengan mudah dibanding tata letak biasa. Karakteristik dari Grid Layout adalah baris dan kolom, area grid dan ukuran yang berbeda beda. Kegunaan Grid Layout adalah untuk membuat layout yang kompleks, menyusun konten dengan pengaturan dua dimensi, dan mempermudah penataan UI.
+Ada beberapa alasan mengapa pembersihan data di backend perlu dilakukan.
+1. **Frontend Tidak Dapat Dipercaya Sepenuhnya**
+Validasi di frontend, meskipun penting untuk pengalaman user, tidak dapat diandalkan untuk keamanan. User atau hacker bisa dengan mudah memanipulasi kode JavaScript di browser mereka atau menggunakan alat seperti Postman untuk mengirim data langsung ke server, melewati frontend sepenuhnya. Oleh karena itu, pembersihan data di backend adalah langkah penting untuk melindungi aplikasi dari input berbahaya.\
+
+2. **Mencegah Serangan Keamanan (Security Attacks)**\
+Tanpa pembersihan data di backend, aplikasi rentan terhadap berbagai serangan, seperti SQL Injection, XSS maupun Remote Code Execution.\
+
+3. **Memastikan Konsistensi Validasi**\
+Validasi di backend memastikan konsistensi. Semua input akan diproses dan dibersihkan dengan cara yang sama.\
+
+4. **Multi-Client Environment**\
+Jika pembersihan hanya dilakukan di frontend, maka input dari sumber lain yang tidak melalui validasi frontend bisa mengandung data berbahaya. Dengan pembersihan di backend, semua data yang masuk dari berbagai sumber akan diperlakukan dengan sama aman.\
+
+5. **Kepatuhan Terhadap Standar Keamanan**\
+Banyak standar keamanan dan praktik terbaik yang direkomendasikan oleh industri, seperti OWASP (Open Web Application Security Project), yang menekankan bahwa validasi dan sanitasi data harus dilakukan di backend, karena hanya backend yang bisa sepenuhnya dikontrol dan diamankan oleh developer.
 
 ### 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!
 Jawab:\
-Pada tugas 5 kali ini, kita diminta untuk membuat fungsi edit dan menghapus produk. Maka dari itu saya membuat function di `views.py`
+Karena tugas 6 mengganti add form normal yang sebelumnya memakai page create product entry. yang mana kita perlu menuju page lain dan reload setelah input produk baru. Kali ini memakai AJAX (Asynchronous JavaScript And XML).\
+\
+Konsep AJAX dalam menggantikan form normal seperti pada tugas yang Anda kerjakan untuk create product entry adalah untuk meningkatkan pengalaman pengguna (user experience) dengan menghindari page reload dan mempercepat proses input data. Pada implementasi sebelumnya, pengguna harus diarahkan ke halaman lain (form page) untuk menambahkan produk baru, dan setelah mengirim form, halaman perlu di-reload atau pengguna harus kembali ke halaman sebelumnya. 
+Memory updated
+Konsep AJAX dalam menggantikan form normal seperti pada tugas yang Anda kerjakan untuk create product entry adalah untuk meningkatkan pengalaman pengguna (user experience) dengan menghindari page reload dan mempercepat proses input data. Pada implementasi sebelumnya, pengguna harus diarahkan ke halaman lain (form page) untuk menambahkan produk baru, dan setelah mengirim form, halaman perlu di-reload atau pengguna harus kembali ke halaman sebelumnya. Dengan menggunakan AJAX dan modal, konsepnya adalah sebagai berikut\
+1. **Pengguna Tetap di Halaman yang Sama**
+2. **Asynchronous Request (AJAX)**
+3. **Feedback Instan**
+4. **Pengalaman Pengguna yang Lebih Baik**\
+\
+Yang pertama kali saya lakukan adalah membuat function add product entry ajax dengan sedikit modifikasi validasi input.
 ```
-def edit_product(request, id):
-    product = Ecommerce.objects.get(pk = id)
-    form = EcommerceEntryForm(request.POST or None, instance=product)
-    
-    if form.is_valid() and request.method == "POST":
-        form.save()
-        return HttpResponseRedirect(reverse('main:show_main'))
-    
-    context = {'form':form}
-    return render(request, "edit_product.html", context)
+@csrf_exempt
+@require_POST
+def add_product_entry_ajax(request):
+    try:
+        name = request.POST.get("name")
+        price = request.POST.get("price")
+        quantity = request.POST.get("quantity")
+        description = request.POST.get("description")
+        
+        # Validasi input
+        if not all([name, price, quantity, description]):
+            return JsonResponse({
+                "status": False,
+                "message": "Semua field harus diisi!"
+            }, status=400)
+        
+        # Konversi price dan quantity ke integer
+        try:
+            price = int(price)
+            quantity = int(quantity)
+        except ValueError:
+            return JsonResponse({
+                "status": False,
+                "message": "Price dan quantity harus berupa angka!"
+            }, status=400)
+
+        # Buat produk baru
+        new_product = Ecommerce.objects.create(
+            user=request.user,
+            name=name,
+            price=price,
+            quantity=quantity,
+            description=description
+        )
+
+        # Serialize produk untuk response
+        return JsonResponse({
+            "status": True,
+            "message": "Product berhasil ditambahkan!",
+            "product": {
+                "id": str(new_product.id),
+                "name": new_product.name,
+                "price": new_product.price,
+                "quantity": new_product.quantity,
+                "description": new_product.description
+            }
+        }, status=201)
+
+    except Exception as e:
+        return JsonResponse({
+            "status": False,
+            "message": str(e)
+        }, status=500)
 ```
-Lalu set url di `urls.py` pada main. Untuk Edit Product, kita juga perlu membuat html khusus untuk mengedit produk dengan UI dan fungsi kurang lebih sama dengan `create_product_enty.html`. Untuk function delete product pada `views.py` saya membuatnya seperti ini
-
-def delete_product(request, id):
-    product = Ecommerce.objects.get(pk = id)
-    product.delete()
-    return HttpResponseRedirect(reverse('main:show_main'))
-
-Kemudian set url di `urls.py` pada main. Delete product hanya perlu membuat tombol delete sehingga tidak diperlukan untuk membuat html khusus seperti edit product. Kesamaan dari fungsi tersebut adalah kedua fungsi tersebut harus mengambil primary key dari masing - masing produk yang diambil dari database.\
+Setelah itu modifikasi sedikit di bagian show_main dan show_json sekaligus show_xml untuk memfilter sesuai id primary key dan set url add_product_entry_ajax di urls.py\
 \
-Selanjutnya saya sudah membuat halaman produk secara responsif dan di design dengan sedikit perubahan pada tampilannya.\
-Jika tidak ada produk yang ditambahkan akan menampilkan gambar dan tulisan "Belum ada produk yang ditambahkan ke e-commerce ini."\
-![alt text](image-5.png)
-Jika ada produk yang ditambahkan, tampilannya akan seperti pada gambar berikut.\
-![alt text](image-7.png)
-\
-Disetiap produk sudah tertera tombol edit yang langsung mengarahkan user ke edit form dan tombol delete untuk menghapus produk secara instan.\
-\
-Saya juga sudah membuat navbar yang responsif untuk kedua platform, mobile dan desktop yang bisa dilihat identasinya di [navbar.html](https://github.com/fachhhh/RiiPedia/blob/main/templates/navbar.html)\
-![alt text](image-6.png)
+Kemudian karena AJAX membutuhkan modal maka modifikasi html dan css pada main.html dan membuat fungsi dengan `getProductEntries()`, `refreshProductEntries()`, `openModal(id)`, `closeModal(id)` dan `addProductEntry(event)`.
 
 ## Terima Kasih
