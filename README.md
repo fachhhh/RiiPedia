@@ -11,6 +11,7 @@
 - [Tugas Individu 2](https://github.com/fachhhh/RiiPedia/wiki/Archieve-Tugas-Individu-2-PBP)
 - [Tugas Individu 3](https://github.com/fachhhh/RiiPedia/wiki/Archieve-Tugas-Individu-3-PBP)
 - [Tugas Individu 4](https://github.com/fachhhh/RiiPedia/wiki/Archieve-Tugas-Individu-4-PBP)
+- [Tugas Individu 5](https://github.com/fachhhh/RiiPedia/wiki/Archieve-Tugas-Individu-5-PBP)
 
 ## Checkpoint Tugas Individu 6
 ✔ Mengubah tugas 5 yang telah dibuat sebelumnya menjadi menggunakan AJAX.
@@ -22,7 +23,7 @@
     - Buatlah fungsi view baru untuk menambahkan mood baru ke dalam basis data.
     - Buatlah path /create-ajax/ yang mengarah ke fungsi view yang baru kamu buat.
     - Hubungkan form yang telah kamu buat di dalam modal kamu ke path /create-ajax/.
-    - Lakukan refresh pada halaman utama secara asinkronus untuk menampilkan daftar mood terbaru tanpa reload halaman utama secara keseluruhan.
+    - Lakukan refresh pada halaman utama secara asinkronus untuk menampilkan daftar mood terbaru tanpa reload halaman utama secara keseluruhan.\
 ✔ Menjawab beberapa pertanyaan berikut pada README.md pada root folder (silakan modifikasi README.md yang telah kamu buat sebelumnya; tambahkan subjudul untuk setiap tugas).
 
 ### 1. Jelaskan manfaat dari penggunaan JavaScript dalam pengembangan aplikasi web!
@@ -157,7 +158,7 @@ def add_product_entry_ajax(request):
                 "name": new_product.name,
                 "price": new_product.price,
                 "quantity": new_product.quantity,
-                "description": new_product.description
+                "description": new_product.description,
             }
         }, status=201)
 
