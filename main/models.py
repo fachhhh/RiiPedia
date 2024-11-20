@@ -13,3 +13,4 @@ class Ecommerce(models.Model):
     @property
     def is_quantity_more_than_50(self):
         return self.quantity > 50
+    

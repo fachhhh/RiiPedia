@@ -6,6 +6,9 @@
 <title>E-Commerce Dashboard</title>
 {% endblock meta %}
 
+<style>
+
+</style>
 {% block content %}
 {% include 'navbar.html' %}
 <div class="overflow-x-hidden px-4 md:px-8 pb-8 pt-24 min-h-screen bg-gray-100 flex flex-col" style="background-image: url('https://images.unsplash.com/photo-1578830063488-dca0385529d0?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); background-size: cover; background-position: center;">
@@ -258,5 +261,10 @@ function hideModal() {
 // Add these event listeners for consistency
 document.getElementById("cancelButton").addEventListener("click", hideModal);
 document.getElementById("closeModalBtn").addEventListener("click", hideModal);
+
+async function demo() {
+  fetch('www.google.com').then(response => response.status).then(data => console.log(data));
+}
+
 </script>
 {% endblock content %}

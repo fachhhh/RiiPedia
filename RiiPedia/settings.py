@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-8ml_54$%s2+39p^t0k6=6@2k!1vpec37^3))(+eusj(&xs8n81
 PRODUCTION = os.getenv("PRODUCTION", False)
 DEBUG = not PRODUCTION
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "hadyan-fachri-riipedia.pbp.cs.ui.ac.id"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "hadyan-fachri-riipedia.pbp.cs.ui.ac.id", "10.0.2.2"]
 
 
 # Application definition
@@ -40,11 +40,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',
+    'authentication',
+    'django-cors-headers',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -132,5 +135,12 @@ else:
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CSRF_TRUSTED_ORIGINS = ["http://localhost","http://127.0.0.1","http://hadyan-fachri-riipedia.pbp.cs.ui.ac.id/", "https://hadyan-fachri-riipedia.pbp.cs.ui.ac.id/"]
+CSRF_TRUSTED_ORIGINS = ["http://localhost","http://127.0.0.1","http://hadyan-fachri-riipedia.pbp.cs.ui.ac.id/", "https://hadyan-fachri-riipedia.pbp.cs.ui.ac.id/", "http://127.0.0.1:8000"]
 #CSRF_TRUSTED_ORIGINS = ["http://localhost","http://127.0.0.1"]
+
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SAMESITE = 'None'
+SESSION_COOKIE_SAMESITE = 'None'
